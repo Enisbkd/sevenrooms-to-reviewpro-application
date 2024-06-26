@@ -1,0 +1,27 @@
+{
+  "sevenRoomsToReviewProApplicationApp": {
+    "resPosticketsItem": {
+      "home": {
+        "title": "Res Postickets Items",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Res Postickets Item",
+        "createOrEditLabel": "Create or edit a Res Postickets Item",
+        "notFound": "No Res Postickets Items found"
+      },
+      "created": "A new Res Postickets Item is created with identifier {{ param }}",
+      "updated": "A Res Postickets Item is updated with identifier {{ param }}",
+      "deleted": "A Res Postickets Item is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Res Postickets Item {{ id }}?"
+      },
+      "detail": {
+        "title": "Res Postickets Item"
+      },
+      "id": "ID",
+      "price": "Price",
+      "name": "Name",
+      "quantity": "Quantity",
+      "resPosTicket": "Res Pos Ticket"
+    }
+  }
+}

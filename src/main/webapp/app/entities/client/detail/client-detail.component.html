@@ -1,0 +1,270 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (client()) {
+      <div>
+        <h2 data-cy="clientDetailsHeading"><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.detail.title">Client</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ client()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.clientId">Client Id</span></dt>
+          <dd>
+            <span>{{ client()!.clientId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.createdDate">Created Date</span></dt>
+          <dd>
+            <span>{{ client()!.createdDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.updatedDate">Updated Date</span></dt>
+          <dd>
+            <span>{{ client()!.updatedDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.deletedDate">Deleted Date</span></dt>
+          <dd>
+            <span>{{ client()!.deletedDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.lastname">Lastname</span></dt>
+          <dd>
+            <span>{{ client()!.lastname }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.firstname">Firstname</span></dt>
+          <dd>
+            <span>{{ client()!.firstname }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.gender">Gender</span></dt>
+          <dd>
+            <span>{{ client()!.gender }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.salutation">Salutation</span></dt>
+          <dd>
+            <span>{{ client()!.salutation }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.title">Title</span></dt>
+          <dd>
+            <span>{{ client()!.title }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.birthdayDay">Birthday Day</span></dt>
+          <dd>
+            <span>{{ client()!.birthdayDay }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.birthdayMonth">Birthday Month</span></dt>
+          <dd>
+            <span>{{ client()!.birthdayMonth }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.birthdayAltMonth">Birthday Alt Month</span></dt>
+          <dd>
+            <span>{{ client()!.birthdayAltMonth }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.anniversaryDay">Anniversary Day</span></dt>
+          <dd>
+            <span>{{ client()!.anniversaryDay }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.anniversaryMonth">Anniversary Month</span></dt>
+          <dd>
+            <span>{{ client()!.anniversaryMonth }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.company">Company</span></dt>
+          <dd>
+            <span>{{ client()!.company }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.email">Email</span></dt>
+          <dd>
+            <span>{{ client()!.email }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.emailAlt">Email Alt</span></dt>
+          <dd>
+            <span>{{ client()!.emailAlt }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.phoneNumber">Phone Number</span></dt>
+          <dd>
+            <span>{{ client()!.phoneNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.phoneNumberlocale">Phone Numberlocale</span></dt>
+          <dd>
+            <span>{{ client()!.phoneNumberlocale }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.phoneNumberalt">Phone Numberalt</span></dt>
+          <dd>
+            <span>{{ client()!.phoneNumberalt }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.phoneNumberaltlocale">Phone Numberaltlocale</span></dt>
+          <dd>
+            <span>{{ client()!.phoneNumberaltlocale }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.address">Address</span></dt>
+          <dd>
+            <span>{{ client()!.address }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.address2">Address 2</span></dt>
+          <dd>
+            <span>{{ client()!.address2 }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.city">City</span></dt>
+          <dd>
+            <span>{{ client()!.city }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.postalCode">Postal Code</span></dt>
+          <dd>
+            <span>{{ client()!.postalCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.state">State</span></dt>
+          <dd>
+            <span>{{ client()!.state }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.country">Country</span></dt>
+          <dd>
+            <span>{{ client()!.country }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.isContactPrivate">Is Contact Private</span></dt>
+          <dd>
+            <span>{{ client()!.isContactPrivate }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.isOnetimeGuest">Is Onetime Guest</span></dt>
+          <dd>
+            <span>{{ client()!.isOnetimeGuest }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.status">Status</span></dt>
+          <dd>
+            <span>{{ client()!.status }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.loyaltyId">Loyalty Id</span></dt>
+          <dd>
+            <span>{{ client()!.loyaltyId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.loyaltyRank">Loyalty Rank</span></dt>
+          <dd>
+            <span>{{ client()!.loyaltyRank }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.loyaltyTier">Loyalty Tier</span></dt>
+          <dd>
+            <span>{{ client()!.loyaltyTier }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.marketingOptin">Marketing Optin</span></dt>
+          <dd>
+            <span>{{ client()!.marketingOptin }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.marketingOptints">Marketing Optints</span></dt>
+          <dd>
+            <span>{{ client()!.marketingOptints }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.marketingOptOutts">Marketing Opt Outts</span></dt>
+          <dd>
+            <span>{{ client()!.marketingOptOutts }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.hasBillingProfile">Has Billing Profile</span></dt>
+          <dd>
+            <span>{{ client()!.hasBillingProfile }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.notes">Notes</span></dt>
+          <dd>
+            <span>{{ client()!.notes }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.privateNotes">Private Notes</span></dt>
+          <dd>
+            <span>{{ client()!.privateNotes }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.tags">Tags</span></dt>
+          <dd>
+            <span>{{ client()!.tags }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.totalVisits">Total Visits</span></dt>
+          <dd>
+            <span>{{ client()!.totalVisits }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.totalCovers">Total Covers</span></dt>
+          <dd>
+            <span>{{ client()!.totalCovers }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.totalCancellations">Total Cancellations</span></dt>
+          <dd>
+            <span>{{ client()!.totalCancellations }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.totalNoShows">Total No Shows</span></dt>
+          <dd>
+            <span>{{ client()!.totalNoShows }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.totalSpend">Total Spend</span></dt>
+          <dd>
+            <span>{{ client()!.totalSpend }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.totalSpendPerCover">Total Spend Per Cover</span></dt>
+          <dd>
+            <span>{{ client()!.totalSpendPerCover }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.totalspendPerVisit">Totalspend Per Visit</span></dt>
+          <dd>
+            <span>{{ client()!.totalspendPerVisit }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.avgRating">Avg Rating</span></dt>
+          <dd>
+            <span>{{ client()!.avgRating }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.referenceCode">Reference Code</span></dt>
+          <dd>
+            <span>{{ client()!.referenceCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.externalUserId">External User Id</span></dt>
+          <dd>
+            <span>{{ client()!.externalUserId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.venueGroupId">Venue Group Id</span></dt>
+          <dd>
+            <span>{{ client()!.venueGroupId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.birthdayAltDay">Birthday Alt Day</span></dt>
+          <dd>
+            <span>{{ client()!.birthdayAltDay }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.userId">User Id</span></dt>
+          <dd>
+            <span>{{ client()!.userId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.userName">User Name</span></dt>
+          <dd>
+            <span>{{ client()!.userName }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.totalOrderCount">Total Order Count</span></dt>
+          <dd>
+            <span>{{ client()!.totalOrderCount }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.preferredLanguageCode">Preferred Language Code</span></dt>
+          <dd>
+            <span>{{ client()!.preferredLanguageCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.clientPhoto">Client Photo</span></dt>
+          <dd>
+            @if (client()!.clientPhoto) {
+              <div>
+                <a [routerLink]="['/client-photo', client()!.clientPhoto?.id, 'view']">{{ client()!.clientPhoto?.id }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.clientVenueStats">Client Venue Stats</span></dt>
+          <dd>
+            @if (client()!.clientVenueStats) {
+              <div>
+                <a [routerLink]="['/client-venue-stats', client()!.clientVenueStats?.id, 'view']">{{ client()!.clientVenueStats?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/client', client()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

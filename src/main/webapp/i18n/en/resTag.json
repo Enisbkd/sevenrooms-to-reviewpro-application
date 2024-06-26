@@ -1,0 +1,30 @@
+{
+  "sevenRoomsToReviewProApplicationApp": {
+    "resTag": {
+      "home": {
+        "title": "Res Tags",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Res Tag",
+        "createOrEditLabel": "Create or edit a Res Tag",
+        "notFound": "No Res Tags found"
+      },
+      "created": "A new Res Tag is created with identifier {{ param }}",
+      "updated": "A Res Tag is updated with identifier {{ param }}",
+      "deleted": "A Res Tag is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Res Tag {{ id }}?"
+      },
+      "detail": {
+        "title": "Res Tag"
+      },
+      "id": "ID",
+      "tag": "Tag",
+      "tagDisplay": "Tag Display",
+      "group": "Group",
+      "groupDisplay": "Group Display",
+      "color": "Color",
+      "tagSearchQuery": "Tag Search Query",
+      "reservation": "Reservation"
+    }
+  }
+}

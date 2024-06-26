@@ -1,0 +1,38 @@
+{
+  "sevenRoomsToReviewProApplicationApp": {
+    "clientPhoto": {
+      "home": {
+        "title": "Client Photos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Client Photo",
+        "createOrEditLabel": "Create or edit a Client Photo",
+        "notFound": "No Client Photos found"
+      },
+      "created": "A new Client Photo is created with identifier {{ param }}",
+      "updated": "A Client Photo is updated with identifier {{ param }}",
+      "deleted": "A Client Photo is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Client Photo {{ id }}?"
+      },
+      "detail": {
+        "title": "Client Photo"
+      },
+      "id": "ID",
+      "large": "Large",
+      "largeHeight": "Large Height",
+      "largeWidth": "Large Width",
+      "medium": "Medium",
+      "mediumHeight": "Medium Height",
+      "mediumWidth": "Medium Width",
+      "small": "Small",
+      "smallHeight": "Small Height",
+      "smallWidth": "Small Width",
+      "raw": "Raw",
+      "cropx": "Cropx",
+      "cropy": "Cropy",
+      "cropHeight": "Crop Height",
+      "cropWidth": "Crop Width",
+      "client": "Client"
+    }
+  }
+}

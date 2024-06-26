@@ -1,0 +1,134 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (venue()) {
+      <div>
+        <h2 data-cy="venueDetailsHeading"><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.detail.title">Venue</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ venue()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.address">Address</span></dt>
+          <dd>
+            <span>{{ venue()!.address }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.blackLogo">Black Logo</span></dt>
+          <dd>
+            <span>{{ venue()!.blackLogo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.country">Country</span></dt>
+          <dd>
+            <span>{{ venue()!.country }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.crossStreet">Cross Street</span></dt>
+          <dd>
+            <span>{{ venue()!.crossStreet }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.currencyCode">Currency Code</span></dt>
+          <dd>
+            <span>{{ venue()!.currencyCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.externalVenueId">External Venue Id</span></dt>
+          <dd>
+            <span>{{ venue()!.externalVenueId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.fullDiningBackend">Full Dining Backend</span></dt>
+          <dd>
+            <span>{{ venue()!.fullDiningBackend }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.gridEnabled">Grid Enabled</span></dt>
+          <dd>
+            <span>{{ venue()!.gridEnabled }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.venueId">Venue Id</span></dt>
+          <dd>
+            <span>{{ venue()!.venueId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.internalName">Internal Name</span></dt>
+          <dd>
+            <span>{{ venue()!.internalName }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.membershipEnabled">Membership Enabled</span></dt>
+          <dd>
+            <span>{{ venue()!.membershipEnabled }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.name">Name</span></dt>
+          <dd>
+            <span>{{ venue()!.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.neighborhood">Neighborhood</span></dt>
+          <dd>
+            <span>{{ venue()!.neighborhood }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.phoneNumber">Phone Number</span></dt>
+          <dd>
+            <span>{{ venue()!.phoneNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.policy">Policy</span></dt>
+          <dd>
+            <span>{{ venue()!.policy }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.postalCode">Postal Code</span></dt>
+          <dd>
+            <span>{{ venue()!.postalCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.primaryColor">Primary Color</span></dt>
+          <dd>
+            <span>{{ venue()!.primaryColor }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.secondaryColor">Secondary Color</span></dt>
+          <dd>
+            <span>{{ venue()!.secondaryColor }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.state">State</span></dt>
+          <dd>
+            <span>{{ venue()!.state }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.uniqueConfirmationPrefix">Unique Confirmation Prefix</span></dt>
+          <dd>
+            <span>{{ venue()!.uniqueConfirmationPrefix }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.venueClass">Venue Class</span></dt>
+          <dd>
+            <span>{{ venue()!.venueClass }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.venueGroupId">Venue Group Id</span></dt>
+          <dd>
+            <span>{{ venue()!.venueGroupId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.venueGroupName">Venue Group Name</span></dt>
+          <dd>
+            <span>{{ venue()!.venueGroupName }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.venueUrlKey">Venue Url Key</span></dt>
+          <dd>
+            <span>{{ venue()!.venueUrlKey }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.website">Website</span></dt>
+          <dd>
+            <span>{{ venue()!.website }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.whiteLogo">White Logo</span></dt>
+          <dd>
+            <span>{{ venue()!.whiteLogo }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/venue', venue()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

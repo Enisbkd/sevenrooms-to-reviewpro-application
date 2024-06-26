@@ -1,0 +1,45 @@
+{
+  "annotations": {
+    "changelogDate": "20240626143534"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "tag",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tagDisplay",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "group",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "groupDisplay",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "color",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tagSearchQuery",
+      "fieldType": "String"
+    }
+  ],
+  "name": "ClientTag",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "client",
+      "otherEntityRelationshipName": "clientTag",
+      "relationshipName": "client",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

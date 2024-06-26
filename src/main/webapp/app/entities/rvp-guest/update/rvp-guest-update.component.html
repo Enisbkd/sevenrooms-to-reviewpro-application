@@ -1,0 +1,128 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-rvp-guest-heading"
+        data-cy="RvpGuestCreateUpdateHeading"
+        jhiTranslate="sevenRoomsToReviewProApplicationApp.rvpGuest.home.createOrEditLabel"
+      >
+        Create or edit a Rvp Guest
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="sevenRoomsToReviewProApplicationApp.rvpGuest.id">ID</label>
+            <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_pmsId" jhiTranslate="sevenRoomsToReviewProApplicationApp.rvpGuest.pmsId">Pms Id</label>
+          <input type="text" class="form-control" name="pmsId" id="field_pmsId" data-cy="pmsId" formControlName="pmsId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_firstName" jhiTranslate="sevenRoomsToReviewProApplicationApp.rvpGuest.firstName"
+            >First Name</label
+          >
+          <input type="text" class="form-control" name="firstName" id="field_firstName" data-cy="firstName" formControlName="firstName" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_lastName" jhiTranslate="sevenRoomsToReviewProApplicationApp.rvpGuest.lastName"
+            >Last Name</label
+          >
+          <input type="text" class="form-control" name="lastName" id="field_lastName" data-cy="lastName" formControlName="lastName" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_language" jhiTranslate="sevenRoomsToReviewProApplicationApp.rvpGuest.language"
+            >Language</label
+          >
+          <input type="text" class="form-control" name="language" id="field_language" data-cy="language" formControlName="language" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_checkin" jhiTranslate="sevenRoomsToReviewProApplicationApp.rvpGuest.checkin">Checkin</label>
+          <div class="input-group">
+            <input
+              id="field_checkin"
+              data-cy="checkin"
+              type="text"
+              class="form-control"
+              name="checkin"
+              ngbDatepicker
+              #checkinDp="ngbDatepicker"
+              formControlName="checkin"
+            />
+            <button type="button" class="btn btn-secondary" (click)="checkinDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_checkout" jhiTranslate="sevenRoomsToReviewProApplicationApp.rvpGuest.checkout"
+            >Checkout</label
+          >
+          <div class="input-group">
+            <input
+              id="field_checkout"
+              data-cy="checkout"
+              type="text"
+              class="form-control"
+              name="checkout"
+              ngbDatepicker
+              #checkoutDp="ngbDatepicker"
+              formControlName="checkout"
+            />
+            <button type="button" class="btn btn-secondary" (click)="checkoutDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_email" jhiTranslate="sevenRoomsToReviewProApplicationApp.rvpGuest.email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_emailAlt" jhiTranslate="sevenRoomsToReviewProApplicationApp.rvpGuest.emailAlt"
+            >Email Alt</label
+          >
+          <input type="text" class="form-control" name="emailAlt" id="field_emailAlt" data-cy="emailAlt" formControlName="emailAlt" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_salutation" jhiTranslate="sevenRoomsToReviewProApplicationApp.rvpGuest.salutation"
+            >Salutation</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="salutation"
+            id="field_salutation"
+            data-cy="salutation"
+            formControlName="salutation"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (clientPhoto()) {
+      <div>
+        <h2 data-cy="clientPhotoDetailsHeading">
+          <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.detail.title">Client Photo</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ clientPhoto()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.large">Large</span></dt>
+          <dd>
+            <span>{{ clientPhoto()!.large }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.largeHeight">Large Height</span></dt>
+          <dd>
+            <span>{{ clientPhoto()!.largeHeight }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.largeWidth">Large Width</span></dt>
+          <dd>
+            <span>{{ clientPhoto()!.largeWidth }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.medium">Medium</span></dt>
+          <dd>
+            <span>{{ clientPhoto()!.medium }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.mediumHeight">Medium Height</span></dt>
+          <dd>
+            <span>{{ clientPhoto()!.mediumHeight }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.mediumWidth">Medium Width</span></dt>
+          <dd>
+            <span>{{ clientPhoto()!.mediumWidth }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.small">Small</span></dt>
+          <dd>
+            <span>{{ clientPhoto()!.small }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.smallHeight">Small Height</span></dt>
+          <dd>
+            <span>{{ clientPhoto()!.smallHeight }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.smallWidth">Small Width</span></dt>
+          <dd>
+            <span>{{ clientPhoto()!.smallWidth }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.raw">Raw</span></dt>
+          <dd>
+            <span>{{ clientPhoto()!.raw }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.cropx">Cropx</span></dt>
+          <dd>
+            <span>{{ clientPhoto()!.cropx }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.cropy">Cropy</span></dt>
+          <dd>
+            <span>{{ clientPhoto()!.cropy }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.cropHeight">Crop Height</span></dt>
+          <dd>
+            <span>{{ clientPhoto()!.cropHeight }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.cropWidth">Crop Width</span></dt>
+          <dd>
+            <span>{{ clientPhoto()!.cropWidth }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/client-photo', clientPhoto()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

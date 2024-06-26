@@ -1,0 +1,771 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-reservation-heading"
+        data-cy="ReservationCreateUpdateHeading"
+        jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.home.createOrEditLabel"
+      >
+        Create or edit a Reservation
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.id">ID</label>
+            <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_resvId" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.resvId">Resv Id</label>
+          <input type="text" class="form-control" name="resvId" id="field_resvId" data-cy="resvId" formControlName="resvId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_created" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.created"
+            >Created</label
+          >
+          <input type="text" class="form-control" name="created" id="field_created" data-cy="created" formControlName="created" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_updated" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.updated"
+            >Updated</label
+          >
+          <input type="text" class="form-control" name="updated" id="field_updated" data-cy="updated" formControlName="updated" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_deleted" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.deleted"
+            >Deleted</label
+          >
+          <input type="text" class="form-control" name="deleted" id="field_deleted" data-cy="deleted" formControlName="deleted" />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_venueGroupClientId"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.venueGroupClientId"
+            >Venue Group Client Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="venueGroupClientId"
+            id="field_venueGroupClientId"
+            data-cy="venueGroupClientId"
+            formControlName="venueGroupClientId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_venueGroupId" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.venueGroupId"
+            >Venue Group Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="venueGroupId"
+            id="field_venueGroupId"
+            data-cy="venueGroupId"
+            formControlName="venueGroupId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_venueId" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.venueId"
+            >Venue Id</label
+          >
+          <input type="text" class="form-control" name="venueId" id="field_venueId" data-cy="venueId" formControlName="venueId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_date" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.date">Date</label>
+          <input type="text" class="form-control" name="date" id="field_date" data-cy="date" formControlName="date" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_duration" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.duration"
+            >Duration</label
+          >
+          <input type="number" class="form-control" name="duration" id="field_duration" data-cy="duration" formControlName="duration" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_checkNumbers" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.checkNumbers"
+            >Check Numbers</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="checkNumbers"
+            id="field_checkNumbers"
+            data-cy="checkNumbers"
+            formControlName="checkNumbers"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_shiftCategory" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.shiftCategory"
+            >Shift Category</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="shiftCategory"
+            id="field_shiftCategory"
+            data-cy="shiftCategory"
+            formControlName="shiftCategory"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_shiftPersistentId"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.shiftPersistentId"
+            >Shift Persistent Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="shiftPersistentId"
+            id="field_shiftPersistentId"
+            data-cy="shiftPersistentId"
+            formControlName="shiftPersistentId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_maxGuests" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.maxGuests"
+            >Max Guests</label
+          >
+          <input type="number" class="form-control" name="maxGuests" id="field_maxGuests" data-cy="maxGuests" formControlName="maxGuests" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_mfratioMale" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.mfratioMale"
+            >Mfratio Male</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="mfratioMale"
+            id="field_mfratioMale"
+            data-cy="mfratioMale"
+            formControlName="mfratioMale"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_mfratioFemale" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.mfratioFemale"
+            >Mfratio Female</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="mfratioFemale"
+            id="field_mfratioFemale"
+            data-cy="mfratioFemale"
+            formControlName="mfratioFemale"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_status" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.status">Status</label>
+          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_statusDisplay" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.statusDisplay"
+            >Status Display</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="statusDisplay"
+            id="field_statusDisplay"
+            data-cy="statusDisplay"
+            formControlName="statusDisplay"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_statusSimple" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.statusSimple"
+            >Status Simple</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="statusSimple"
+            id="field_statusSimple"
+            data-cy="statusSimple"
+            formControlName="statusSimple"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_accessPersistentId"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.accessPersistentId"
+            >Access Persistent Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="accessPersistentId"
+            id="field_accessPersistentId"
+            data-cy="accessPersistentId"
+            formControlName="accessPersistentId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_arrivedGuests" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.arrivedGuests"
+            >Arrived Guests</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="arrivedGuests"
+            id="field_arrivedGuests"
+            data-cy="arrivedGuests"
+            formControlName="arrivedGuests"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_isvip" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.isvip">Isvip</label>
+          <input type="checkbox" class="form-check" name="isvip" id="field_isvip" data-cy="isvip" formControlName="isvip" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_bookedby" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.bookedby"
+            >Bookedby</label
+          >
+          <input type="text" class="form-control" name="bookedby" id="field_bookedby" data-cy="bookedby" formControlName="bookedby" />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_clientReferenceCode"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.clientReferenceCode"
+            >Client Reference Code</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="clientReferenceCode"
+            id="field_clientReferenceCode"
+            data-cy="clientReferenceCode"
+            formControlName="clientReferenceCode"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_lastname" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.lastname"
+            >Lastname</label
+          >
+          <input type="text" class="form-control" name="lastname" id="field_lastname" data-cy="lastname" formControlName="lastname" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_firstname" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.firstname"
+            >Firstname</label
+          >
+          <input type="text" class="form-control" name="firstname" id="field_firstname" data-cy="firstname" formControlName="firstname" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_email" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_phoneNumber" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.phoneNumber"
+            >Phone Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="phoneNumber"
+            id="field_phoneNumber"
+            data-cy="phoneNumber"
+            formControlName="phoneNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_address" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.address"
+            >Address</label
+          >
+          <input type="text" class="form-control" name="address" id="field_address" data-cy="address" formControlName="address" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_address2" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.address2"
+            >Address 2</label
+          >
+          <input type="text" class="form-control" name="address2" id="field_address2" data-cy="address2" formControlName="address2" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_city" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.city">City</label>
+          <input type="text" class="form-control" name="city" id="field_city" data-cy="city" formControlName="city" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_postalCode" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.postalCode"
+            >Postal Code</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="postalCode"
+            id="field_postalCode"
+            data-cy="postalCode"
+            formControlName="postalCode"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_state" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.state">State</label>
+          <input type="text" class="form-control" name="state" id="field_state" data-cy="state" formControlName="state" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_country" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.country"
+            >Country</label
+          >
+          <input type="text" class="form-control" name="country" id="field_country" data-cy="country" formControlName="country" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_loyaltyId" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.loyaltyId"
+            >Loyalty Id</label
+          >
+          <input type="text" class="form-control" name="loyaltyId" id="field_loyaltyId" data-cy="loyaltyId" formControlName="loyaltyId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_loyaltyRank" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.loyaltyRank"
+            >Loyalty Rank</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="loyaltyRank"
+            id="field_loyaltyRank"
+            data-cy="loyaltyRank"
+            formControlName="loyaltyRank"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_loyaltyTier" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.loyaltyTier"
+            >Loyalty Tier</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="loyaltyTier"
+            id="field_loyaltyTier"
+            data-cy="loyaltyTier"
+            formControlName="loyaltyTier"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_notes" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.notes">Notes</label>
+          <input type="text" class="form-control" name="notes" id="field_notes" data-cy="notes" formControlName="notes" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_arrivalTime" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.arrivalTime"
+            >Arrival Time</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="arrivalTime"
+            id="field_arrivalTime"
+            data-cy="arrivalTime"
+            formControlName="arrivalTime"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_seatedTime" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.seatedTime"
+            >Seated Time</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="seatedTime"
+            id="field_seatedTime"
+            data-cy="seatedTime"
+            formControlName="seatedTime"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_leftTime" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.leftTime"
+            >Left Time</label
+          >
+          <input type="text" class="form-control" name="leftTime" id="field_leftTime" data-cy="leftTime" formControlName="leftTime" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_clientRequests" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.clientRequests"
+            >Client Requests</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="clientRequests"
+            id="field_clientRequests"
+            data-cy="clientRequests"
+            formControlName="clientRequests"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_comps" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.comps">Comps</label>
+          <input type="number" class="form-control" name="comps" id="field_comps" data-cy="comps" formControlName="comps" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_compsPriceType" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.compsPriceType"
+            >Comps Price Type</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="compsPriceType"
+            id="field_compsPriceType"
+            data-cy="compsPriceType"
+            formControlName="compsPriceType"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_costOption" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.costOption"
+            >Cost Option</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="costOption"
+            id="field_costOption"
+            data-cy="costOption"
+            formControlName="costOption"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_policy" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.policy">Policy</label>
+          <input type="text" class="form-control" name="policy" id="field_policy" data-cy="policy" formControlName="policy" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_minPrice" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.minPrice"
+            >Min Price</label
+          >
+          <input type="number" class="form-control" name="minPrice" id="field_minPrice" data-cy="minPrice" formControlName="minPrice" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_prePayment" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.prePayment"
+            >Pre Payment</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="prePayment"
+            id="field_prePayment"
+            data-cy="prePayment"
+            formControlName="prePayment"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_onsitePayment" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.onsitePayment"
+            >Onsite Payment</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="onsitePayment"
+            id="field_onsitePayment"
+            data-cy="onsitePayment"
+            formControlName="onsitePayment"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_totalPayment" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.totalPayment"
+            >Total Payment</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalPayment"
+            id="field_totalPayment"
+            data-cy="totalPayment"
+            formControlName="totalPayment"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_paidBy" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.paidBy">Paid By</label>
+          <input type="text" class="form-control" name="paidBy" id="field_paidBy" data-cy="paidBy" formControlName="paidBy" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_servedBy" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.servedBy"
+            >Served By</label
+          >
+          <input type="text" class="form-control" name="servedBy" id="field_servedBy" data-cy="servedBy" formControlName="servedBy" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_rating" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.rating">Rating</label>
+          <input type="number" class="form-control" name="rating" id="field_rating" data-cy="rating" formControlName="rating" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_problems" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.problems"
+            >Problems</label
+          >
+          <input type="text" class="form-control" name="problems" id="field_problems" data-cy="problems" formControlName="problems" />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_autoAssignments"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.autoAssignments"
+            >Auto Assignments</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="autoAssignments"
+            id="field_autoAssignments"
+            data-cy="autoAssignments"
+            formControlName="autoAssignments"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_externalClientId"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.externalClientId"
+            >External Client Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="externalClientId"
+            id="field_externalClientId"
+            data-cy="externalClientId"
+            formControlName="externalClientId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_externalId" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.externalId"
+            >External Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="externalId"
+            id="field_externalId"
+            data-cy="externalId"
+            formControlName="externalId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_externalReferenceCode"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.externalReferenceCode"
+            >External Reference Code</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="externalReferenceCode"
+            id="field_externalReferenceCode"
+            data-cy="externalReferenceCode"
+            formControlName="externalReferenceCode"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_externalUserId" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.externalUserId"
+            >External User Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="externalUserId"
+            id="field_externalUserId"
+            data-cy="externalUserId"
+            formControlName="externalUserId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_modifyReservationLink"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.modifyReservationLink"
+            >Modify Reservation Link</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="modifyReservationLink"
+            id="field_modifyReservationLink"
+            data-cy="modifyReservationLink"
+            formControlName="modifyReservationLink"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_referenceCode" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.referenceCode"
+            >Reference Code</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="referenceCode"
+            id="field_referenceCode"
+            data-cy="referenceCode"
+            formControlName="referenceCode"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_reservationSmsOptin"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.reservationSmsOptin"
+            >Reservation Sms Optin</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="reservationSmsOptin"
+            id="field_reservationSmsOptin"
+            data-cy="reservationSmsOptin"
+            formControlName="reservationSmsOptin"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_reservationType"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.reservationType"
+            >Reservation Type</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="reservationType"
+            id="field_reservationType"
+            data-cy="reservationType"
+            formControlName="reservationType"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_sendReminderEmail"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.sendReminderEmail"
+            >Send Reminder Email</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="sendReminderEmail"
+            id="field_sendReminderEmail"
+            data-cy="sendReminderEmail"
+            formControlName="sendReminderEmail"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_sendreminderSms"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.sendreminderSms"
+            >Sendreminder Sms</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="sendreminderSms"
+            id="field_sendreminderSms"
+            data-cy="sendreminderSms"
+            formControlName="sendreminderSms"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_sourceClientId" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.sourceClientId"
+            >Source Client Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="sourceClientId"
+            id="field_sourceClientId"
+            data-cy="sourceClientId"
+            formControlName="sourceClientId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_userId" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.userId">User Id</label>
+          <input type="text" class="form-control" name="userId" id="field_userId" data-cy="userId" formControlName="userId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_userName" jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.userName"
+            >User Name</label
+          >
+          <input type="text" class="form-control" name="userName" id="field_userName" data-cy="userName" formControlName="userName" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+{
+  "annotations": {
+    "changelogDate": "20240626143538"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "large",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "largeHeight",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "largeWidth",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "medium",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mediumHeight",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "mediumWidth",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "small",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "smallHeight",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "smallWidth",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "raw",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cropx",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "cropy",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "cropHeight",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "cropWidth",
+      "fieldType": "Double"
+    }
+  ],
+  "name": "ClientPhoto",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "client",
+      "otherEntityRelationshipName": "clientPhoto",
+      "relationshipName": "client",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

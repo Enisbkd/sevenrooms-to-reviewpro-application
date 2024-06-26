@@ -1,0 +1,209 @@
+<div>
+  <h2 id="page-heading" data-cy="ClientPhotoHeading">
+    <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.home.title">Client Photos</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-client-photo"
+        [routerLink]="['/client-photo/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.home.createLabel">Create a new Client Photo</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (clientPhotos?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.home.notFound">No Client Photos found</span>
+    </div>
+  }
+
+  @if (clientPhotos && clientPhotos.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="large">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.large">Large</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="largeHeight">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.largeHeight">Large Height</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="largeWidth">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.largeWidth">Large Width</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="medium">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.medium">Medium</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="mediumHeight">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.mediumHeight">Medium Height</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="mediumWidth">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.mediumWidth">Medium Width</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="small">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.small">Small</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="smallHeight">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.smallHeight">Small Height</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="smallWidth">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.smallWidth">Small Width</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="raw">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.raw">Raw</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cropx">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.cropx">Cropx</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cropy">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.cropy">Cropy</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cropHeight">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.cropHeight">Crop Height</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cropWidth">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.cropWidth">Crop Width</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (clientPhoto of clientPhotos; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/client-photo', clientPhoto.id, 'view']">{{ clientPhoto.id }}</a>
+              </td>
+              <td>{{ clientPhoto.large }}</td>
+              <td>{{ clientPhoto.largeHeight }}</td>
+              <td>{{ clientPhoto.largeWidth }}</td>
+              <td>{{ clientPhoto.medium }}</td>
+              <td>{{ clientPhoto.mediumHeight }}</td>
+              <td>{{ clientPhoto.mediumWidth }}</td>
+              <td>{{ clientPhoto.small }}</td>
+              <td>{{ clientPhoto.smallHeight }}</td>
+              <td>{{ clientPhoto.smallWidth }}</td>
+              <td>{{ clientPhoto.raw }}</td>
+              <td>{{ clientPhoto.cropx }}</td>
+              <td>{{ clientPhoto.cropy }}</td>
+              <td>{{ clientPhoto.cropHeight }}</td>
+              <td>{{ clientPhoto.cropWidth }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/client-photo', clientPhoto.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/client-photo', clientPhoto.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(clientPhoto)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (clientPhotos && clientPhotos.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

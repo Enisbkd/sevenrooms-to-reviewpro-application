@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (resCustomField()) {
+      <div>
+        <h2 data-cy="resCustomFieldDetailsHeading">
+          <span jhiTranslate="sevenRoomsToReviewProApplicationApp.resCustomField.detail.title">Res Custom Field</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ resCustomField()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resCustomField.systemName">System Name</span></dt>
+          <dd>
+            <span>{{ resCustomField()!.systemName }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resCustomField.displayOrder">Display Order</span></dt>
+          <dd>
+            <span>{{ resCustomField()!.displayOrder }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resCustomField.name">Name</span></dt>
+          <dd>
+            <span>{{ resCustomField()!.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resCustomField.value">Value</span></dt>
+          <dd>
+            <span>{{ resCustomField()!.value }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resCustomField.reservation">Reservation</span></dt>
+          <dd>
+            @if (resCustomField()!.reservation) {
+              <div>
+                <a [routerLink]="['/reservation', resCustomField()!.reservation?.id, 'view']">{{ resCustomField()!.reservation?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/res-custom-field', resCustomField()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

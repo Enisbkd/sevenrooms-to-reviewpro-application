@@ -1,0 +1,33 @@
+{
+  "annotations": {
+    "changelogDate": "20240626143542"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "price",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "ResPosticketsItem",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "resPosTicket",
+      "otherEntityRelationshipName": "resPosticketsItem",
+      "relationshipName": "resPosTicket",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,48 @@
+{
+  "annotations": {
+    "changelogDate": "20240626143531"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "pmsId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "firstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "language",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "checkin",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "checkout",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "emailAlt",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "salutation",
+      "fieldType": "String"
+    }
+  ],
+  "name": "RvpGuest",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,25 @@
+{
+  "annotations": {
+    "changelogDate": "20240626143537"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "name": "BookingName",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "clientVenueStats",
+      "otherEntityRelationshipName": "bookingName",
+      "relationshipName": "clientVenueStats",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

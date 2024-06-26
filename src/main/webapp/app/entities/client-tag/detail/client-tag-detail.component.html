@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (clientTag()) {
+      <div>
+        <h2 data-cy="clientTagDetailsHeading">
+          <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientTag.detail.title">Client Tag</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ clientTag()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientTag.tag">Tag</span></dt>
+          <dd>
+            <span>{{ clientTag()!.tag }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientTag.tagDisplay">Tag Display</span></dt>
+          <dd>
+            <span>{{ clientTag()!.tagDisplay }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientTag.group">Group</span></dt>
+          <dd>
+            <span>{{ clientTag()!.group }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientTag.groupDisplay">Group Display</span></dt>
+          <dd>
+            <span>{{ clientTag()!.groupDisplay }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientTag.color">Color</span></dt>
+          <dd>
+            <span>{{ clientTag()!.color }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientTag.tagSearchQuery">Tag Search Query</span></dt>
+          <dd>
+            <span>{{ clientTag()!.tagSearchQuery }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientTag.client">Client</span></dt>
+          <dd>
+            @if (clientTag()!.client) {
+              <div>
+                <a [routerLink]="['/client', clientTag()!.client?.id, 'view']">{{ clientTag()!.client?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/client-tag', clientTag()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

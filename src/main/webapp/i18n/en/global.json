@@ -8,7 +8,21 @@
       "entities": {
         "main": "Entities",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
-        "adminAuthority": "Authority"
+        "rvpGuest": "Rvp Guest",
+        "client": "Client",
+        "memberGroup": "Member Group",
+        "clientTag": "Client Tag",
+        "customField": "Custom Field",
+        "clientVenueStats": "Client Venue Stats",
+        "bookingName": "Booking Name",
+        "clientPhoto": "Client Photo",
+        "reservation": "Reservation",
+        "resCustomField": "Res Custom Field",
+        "resPosTicket": "Res Pos Ticket",
+        "resPosticketsItem": "Res Postickets Item",
+        "resTag": "Res Tag",
+        "resTable": "Res Table",
+        "venue": "Venue"
       },
       "account": {
         "main": "Account",

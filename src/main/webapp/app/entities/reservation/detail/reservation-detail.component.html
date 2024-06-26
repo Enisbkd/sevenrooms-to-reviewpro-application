@@ -1,0 +1,300 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (reservation()) {
+      <div>
+        <h2 data-cy="reservationDetailsHeading">
+          <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.detail.title">Reservation</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ reservation()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.resvId">Resv Id</span></dt>
+          <dd>
+            <span>{{ reservation()!.resvId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.created">Created</span></dt>
+          <dd>
+            <span>{{ reservation()!.created }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.updated">Updated</span></dt>
+          <dd>
+            <span>{{ reservation()!.updated }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.deleted">Deleted</span></dt>
+          <dd>
+            <span>{{ reservation()!.deleted }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.venueGroupClientId">Venue Group Client Id</span></dt>
+          <dd>
+            <span>{{ reservation()!.venueGroupClientId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.venueGroupId">Venue Group Id</span></dt>
+          <dd>
+            <span>{{ reservation()!.venueGroupId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.venueId">Venue Id</span></dt>
+          <dd>
+            <span>{{ reservation()!.venueId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.date">Date</span></dt>
+          <dd>
+            <span>{{ reservation()!.date }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.duration">Duration</span></dt>
+          <dd>
+            <span>{{ reservation()!.duration }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.checkNumbers">Check Numbers</span></dt>
+          <dd>
+            <span>{{ reservation()!.checkNumbers }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.shiftCategory">Shift Category</span></dt>
+          <dd>
+            <span>{{ reservation()!.shiftCategory }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.shiftPersistentId">Shift Persistent Id</span></dt>
+          <dd>
+            <span>{{ reservation()!.shiftPersistentId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.maxGuests">Max Guests</span></dt>
+          <dd>
+            <span>{{ reservation()!.maxGuests }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.mfratioMale">Mfratio Male</span></dt>
+          <dd>
+            <span>{{ reservation()!.mfratioMale }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.mfratioFemale">Mfratio Female</span></dt>
+          <dd>
+            <span>{{ reservation()!.mfratioFemale }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.status">Status</span></dt>
+          <dd>
+            <span>{{ reservation()!.status }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.statusDisplay">Status Display</span></dt>
+          <dd>
+            <span>{{ reservation()!.statusDisplay }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.statusSimple">Status Simple</span></dt>
+          <dd>
+            <span>{{ reservation()!.statusSimple }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.accessPersistentId">Access Persistent Id</span></dt>
+          <dd>
+            <span>{{ reservation()!.accessPersistentId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.arrivedGuests">Arrived Guests</span></dt>
+          <dd>
+            <span>{{ reservation()!.arrivedGuests }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.isvip">Isvip</span></dt>
+          <dd>
+            <span>{{ reservation()!.isvip }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.bookedby">Bookedby</span></dt>
+          <dd>
+            <span>{{ reservation()!.bookedby }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.clientReferenceCode">Client Reference Code</span></dt>
+          <dd>
+            <span>{{ reservation()!.clientReferenceCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.lastname">Lastname</span></dt>
+          <dd>
+            <span>{{ reservation()!.lastname }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.firstname">Firstname</span></dt>
+          <dd>
+            <span>{{ reservation()!.firstname }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.email">Email</span></dt>
+          <dd>
+            <span>{{ reservation()!.email }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.phoneNumber">Phone Number</span></dt>
+          <dd>
+            <span>{{ reservation()!.phoneNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.address">Address</span></dt>
+          <dd>
+            <span>{{ reservation()!.address }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.address2">Address 2</span></dt>
+          <dd>
+            <span>{{ reservation()!.address2 }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.city">City</span></dt>
+          <dd>
+            <span>{{ reservation()!.city }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.postalCode">Postal Code</span></dt>
+          <dd>
+            <span>{{ reservation()!.postalCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.state">State</span></dt>
+          <dd>
+            <span>{{ reservation()!.state }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.country">Country</span></dt>
+          <dd>
+            <span>{{ reservation()!.country }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.loyaltyId">Loyalty Id</span></dt>
+          <dd>
+            <span>{{ reservation()!.loyaltyId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.loyaltyRank">Loyalty Rank</span></dt>
+          <dd>
+            <span>{{ reservation()!.loyaltyRank }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.loyaltyTier">Loyalty Tier</span></dt>
+          <dd>
+            <span>{{ reservation()!.loyaltyTier }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.notes">Notes</span></dt>
+          <dd>
+            <span>{{ reservation()!.notes }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.arrivalTime">Arrival Time</span></dt>
+          <dd>
+            <span>{{ reservation()!.arrivalTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.seatedTime">Seated Time</span></dt>
+          <dd>
+            <span>{{ reservation()!.seatedTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.leftTime">Left Time</span></dt>
+          <dd>
+            <span>{{ reservation()!.leftTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.clientRequests">Client Requests</span></dt>
+          <dd>
+            <span>{{ reservation()!.clientRequests }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.comps">Comps</span></dt>
+          <dd>
+            <span>{{ reservation()!.comps }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.compsPriceType">Comps Price Type</span></dt>
+          <dd>
+            <span>{{ reservation()!.compsPriceType }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.costOption">Cost Option</span></dt>
+          <dd>
+            <span>{{ reservation()!.costOption }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.policy">Policy</span></dt>
+          <dd>
+            <span>{{ reservation()!.policy }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.minPrice">Min Price</span></dt>
+          <dd>
+            <span>{{ reservation()!.minPrice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.prePayment">Pre Payment</span></dt>
+          <dd>
+            <span>{{ reservation()!.prePayment }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.onsitePayment">Onsite Payment</span></dt>
+          <dd>
+            <span>{{ reservation()!.onsitePayment }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.totalPayment">Total Payment</span></dt>
+          <dd>
+            <span>{{ reservation()!.totalPayment }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.paidBy">Paid By</span></dt>
+          <dd>
+            <span>{{ reservation()!.paidBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.servedBy">Served By</span></dt>
+          <dd>
+            <span>{{ reservation()!.servedBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.rating">Rating</span></dt>
+          <dd>
+            <span>{{ reservation()!.rating }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.problems">Problems</span></dt>
+          <dd>
+            <span>{{ reservation()!.problems }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.autoAssignments">Auto Assignments</span></dt>
+          <dd>
+            <span>{{ reservation()!.autoAssignments }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.externalClientId">External Client Id</span></dt>
+          <dd>
+            <span>{{ reservation()!.externalClientId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.externalId">External Id</span></dt>
+          <dd>
+            <span>{{ reservation()!.externalId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.externalReferenceCode">External Reference Code</span></dt>
+          <dd>
+            <span>{{ reservation()!.externalReferenceCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.externalUserId">External User Id</span></dt>
+          <dd>
+            <span>{{ reservation()!.externalUserId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.modifyReservationLink">Modify Reservation Link</span></dt>
+          <dd>
+            <span>{{ reservation()!.modifyReservationLink }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.referenceCode">Reference Code</span></dt>
+          <dd>
+            <span>{{ reservation()!.referenceCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.reservationSmsOptin">Reservation Sms Optin</span></dt>
+          <dd>
+            <span>{{ reservation()!.reservationSmsOptin }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.reservationType">Reservation Type</span></dt>
+          <dd>
+            <span>{{ reservation()!.reservationType }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.sendReminderEmail">Send Reminder Email</span></dt>
+          <dd>
+            <span>{{ reservation()!.sendReminderEmail }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.sendreminderSms">Sendreminder Sms</span></dt>
+          <dd>
+            <span>{{ reservation()!.sendreminderSms }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.sourceClientId">Source Client Id</span></dt>
+          <dd>
+            <span>{{ reservation()!.sourceClientId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.userId">User Id</span></dt>
+          <dd>
+            <span>{{ reservation()!.userId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.userName">User Name</span></dt>
+          <dd>
+            <span>{{ reservation()!.userName }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/reservation', reservation()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

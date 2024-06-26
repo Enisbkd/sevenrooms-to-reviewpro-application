@@ -1,0 +1,128 @@
+{
+  "annotations": {
+    "changelogDate": "20240626143536"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "totalSpendLocalperCover",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "lastVisitDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "totalCancellations",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "totalCovers",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "avgRating",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "totalSpendperCover",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalSpend",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalNoShows",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "numRatings",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "totalSpendPerVisit",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalSpendLocal",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalSpendLocalPerVisit",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalVisits",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "grossTotal",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalOrderCount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalOrderCancellations",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalOrderSpend",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "grossOrderTotal",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalOrderSpendLocal",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "lastOrderDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "totalSpendperOrder",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalSpendLocalperOrder",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "venueId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "venueMarketingOptin",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "venueMarketingOptints",
+      "fieldType": "String"
+    }
+  ],
+  "name": "ClientVenueStats",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "bookingName",
+      "otherEntityRelationshipName": "clientVenueStats",
+      "relationshipName": "bookingName",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "client",
+      "otherEntityRelationshipName": "clientVenueStats",
+      "relationshipName": "client",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

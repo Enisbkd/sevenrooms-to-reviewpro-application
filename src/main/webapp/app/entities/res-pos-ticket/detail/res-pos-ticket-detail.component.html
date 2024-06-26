@@ -1,0 +1,96 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (resPosTicket()) {
+      <div>
+        <h2 data-cy="resPosTicketDetailsHeading">
+          <span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.detail.title">Res Pos Ticket</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ resPosTicket()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.status">Status</span></dt>
+          <dd>
+            <span>{{ resPosTicket()!.status }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.adminFee">Admin Fee</span></dt>
+          <dd>
+            <span>{{ resPosTicket()!.adminFee }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.code">Code</span></dt>
+          <dd>
+            <span>{{ resPosTicket()!.code }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.tableNo">Table No</span></dt>
+          <dd>
+            <span>{{ resPosTicket()!.tableNo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.tax">Tax</span></dt>
+          <dd>
+            <span>{{ resPosTicket()!.tax }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.businessId">Business Id</span></dt>
+          <dd>
+            <span>{{ resPosTicket()!.businessId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.ticketId">Ticket Id</span></dt>
+          <dd>
+            <span>{{ resPosTicket()!.ticketId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.localPosticketId">Local Posticket Id</span></dt>
+          <dd>
+            <span>{{ resPosTicket()!.localPosticketId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.employeeName">Employee Name</span></dt>
+          <dd>
+            <span>{{ resPosTicket()!.employeeName }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.total">Total</span></dt>
+          <dd>
+            <span>{{ resPosTicket()!.total }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.subtotal">Subtotal</span></dt>
+          <dd>
+            <span>{{ resPosTicket()!.subtotal }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.startTime">Start Time</span></dt>
+          <dd>
+            <span>{{ resPosTicket()!.startTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.serviceCharge">Service Charge</span></dt>
+          <dd>
+            <span>{{ resPosTicket()!.serviceCharge }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.endtime">Endtime</span></dt>
+          <dd>
+            <span>{{ resPosTicket()!.endtime }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.reservation">Reservation</span></dt>
+          <dd>
+            @if (resPosTicket()!.reservation) {
+              <div>
+                <a [routerLink]="['/reservation', resPosTicket()!.reservation?.id, 'view']">{{ resPosTicket()!.reservation?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/res-pos-ticket', resPosTicket()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

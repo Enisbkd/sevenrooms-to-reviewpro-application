@@ -1,0 +1,84 @@
+{
+  "annotations": {
+    "changelogDate": "20240626143541"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adminFee",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "code",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "tableNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tax",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "businessId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "ticketId",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "localPosticketId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "employeeName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "total",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "subtotal",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "startTime",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "serviceCharge",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "endtime",
+      "fieldType": "String"
+    }
+  ],
+  "name": "ResPosTicket",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "resPosticketsItem",
+      "otherEntityRelationshipName": "resPosTicket",
+      "relationshipName": "resPosticketsItem",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "reservation",
+      "otherEntityRelationshipName": "resPosTicket",
+      "relationshipName": "reservation",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

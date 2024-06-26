@@ -1,0 +1,114 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-client-tag-heading"
+        data-cy="ClientTagCreateUpdateHeading"
+        jhiTranslate="sevenRoomsToReviewProApplicationApp.clientTag.home.createOrEditLabel"
+      >
+        Create or edit a Client Tag
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientTag.id">ID</label>
+            <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_tag" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientTag.tag">Tag</label>
+          <input type="text" class="form-control" name="tag" id="field_tag" data-cy="tag" formControlName="tag" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_tagDisplay" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientTag.tagDisplay"
+            >Tag Display</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tagDisplay"
+            id="field_tagDisplay"
+            data-cy="tagDisplay"
+            formControlName="tagDisplay"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_group" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientTag.group">Group</label>
+          <input type="text" class="form-control" name="group" id="field_group" data-cy="group" formControlName="group" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_groupDisplay" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientTag.groupDisplay"
+            >Group Display</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="groupDisplay"
+            id="field_groupDisplay"
+            data-cy="groupDisplay"
+            formControlName="groupDisplay"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_color" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientTag.color">Color</label>
+          <input type="text" class="form-control" name="color" id="field_color" data-cy="color" formControlName="color" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_tagSearchQuery" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientTag.tagSearchQuery"
+            >Tag Search Query</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tagSearchQuery"
+            id="field_tagSearchQuery"
+            data-cy="tagSearchQuery"
+            formControlName="tagSearchQuery"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_client" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientTag.client">Client</label>
+          <select
+            class="form-control"
+            id="field_client"
+            data-cy="client"
+            name="client"
+            formControlName="client"
+            [compareWith]="compareClient"
+          >
+            <option [ngValue]="null"></option>
+            @for (clientOption of clientsSharedCollection; track $index) {
+              <option [ngValue]="clientOption">{{ clientOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
