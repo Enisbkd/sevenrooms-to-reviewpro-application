@@ -49,10 +49,10 @@ public class ClientPhoto implements Serializable {
     private String raw;
 
     @Field("cropx")
-    private Integer cropx;
+    private Double cropx;
 
     @Field("cropy")
-    private Integer cropy;
+    private Double cropy;
 
     @Field("crop_height")
     private Double cropHeight;
@@ -208,29 +208,29 @@ public class ClientPhoto implements Serializable {
         this.raw = raw;
     }
 
-    public Integer getCropx() {
+    public Double getCropx() {
         return this.cropx;
     }
 
-    public ClientPhoto cropx(Integer cropx) {
+    public ClientPhoto cropx(Double cropx) {
         this.setCropx(cropx);
         return this;
     }
 
-    public void setCropx(Integer cropx) {
+    public void setCropx(Double cropx) {
         this.cropx = cropx;
     }
 
-    public Integer getCropy() {
+    public Double getCropy() {
         return this.cropy;
     }
 
-    public ClientPhoto cropy(Integer cropy) {
+    public ClientPhoto cropy(Double cropy) {
         this.setCropy(cropy);
         return this;
     }
 
-    public void setCropy(Integer cropy) {
+    public void setCropy(Double cropy) {
         this.cropy = cropy;
     }
 

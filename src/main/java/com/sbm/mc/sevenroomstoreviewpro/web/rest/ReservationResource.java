@@ -60,7 +60,7 @@ public class ReservationResource {
         }
         reservation = reservationService.save(reservation);
         return ResponseEntity.created(new URI("/api/reservations/" + reservation.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, reservation.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, String.valueOf(reservation.getId())))
             .body(reservation);
     }
 
@@ -93,7 +93,7 @@ public class ReservationResource {
 
         reservation = reservationService.update(reservation);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, reservation.getId()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, String.valueOf(reservation.getId())))
             .body(reservation);
     }
 
@@ -129,7 +129,7 @@ public class ReservationResource {
 
         return ResponseUtil.wrapOrNotFound(
             result,
-            HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, reservation.getId())
+            HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, String.valueOf(reservation.getId()))
         );
     }
 

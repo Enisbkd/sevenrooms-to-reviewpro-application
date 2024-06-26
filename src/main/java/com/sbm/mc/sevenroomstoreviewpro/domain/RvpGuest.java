@@ -2,6 +2,7 @@ package com.sbm.mc.sevenroomstoreviewpro.domain;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -31,7 +32,7 @@ public class RvpGuest implements Serializable {
     private String language;
 
     @Field("checkin")
-    private LocalDate checkin;
+    private LocalDateTime checkin;
 
     @Field("checkout")
     private LocalDate checkout;
@@ -112,16 +113,16 @@ public class RvpGuest implements Serializable {
         this.language = language;
     }
 
-    public LocalDate getCheckin() {
+    public LocalDateTime getCheckin() {
         return this.checkin;
     }
 
-    public RvpGuest checkin(LocalDate checkin) {
+    public RvpGuest checkin(LocalDateTime checkin) {
         this.setCheckin(checkin);
         return this;
     }
 
-    public void setCheckin(LocalDate checkin) {
+    public void setCheckin(LocalDateTime checkin) {
         this.checkin = checkin;
     }
 

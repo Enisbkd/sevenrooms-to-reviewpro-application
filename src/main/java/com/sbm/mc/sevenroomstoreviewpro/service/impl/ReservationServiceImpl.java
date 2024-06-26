@@ -41,7 +41,7 @@ public class ReservationServiceImpl implements ReservationService {
         log.debug("Request to partially update Reservation : {}", reservation);
 
         return reservationRepository
-            .findById(reservation.getId())
+            .findById(String.valueOf(reservation.getId()))
             .map(existingReservation -> {
                 if (reservation.getResvId() != null) {
                     existingReservation.setResvId(reservation.getResvId());

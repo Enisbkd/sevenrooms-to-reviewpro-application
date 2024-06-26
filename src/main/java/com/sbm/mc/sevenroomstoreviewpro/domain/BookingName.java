@@ -27,6 +27,10 @@ public class BookingName implements Serializable {
     @JsonIgnoreProperties(value = { "bookingNames", "client" }, allowSetters = true)
     private ClientVenueStats clientVenueStats;
 
+    public BookingName(String name) {
+        this.setName(name);
+    }
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public String getId() {

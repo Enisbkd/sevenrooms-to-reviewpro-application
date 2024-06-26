@@ -27,6 +27,11 @@ public class ResTable implements Serializable {
     @JsonIgnoreProperties(value = { "resTags", "resPosTickets", "resCustomFields", "resTables" }, allowSetters = true)
     private Reservation reservation;
 
+    public ResTable(String tableNumber, Reservation reservation) {
+        this.tableNumber = tableNumber;
+        this.reservation = reservation;
+    }
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
     public String getId() {

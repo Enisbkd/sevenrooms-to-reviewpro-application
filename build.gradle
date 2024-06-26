@@ -157,7 +157,9 @@ dependencies {
     testImplementation "org.testcontainers:mongodb"
     testImplementation "org.testcontainers:testcontainers"
     implementation platform(libs.mongock.bom)
-    // jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
+    implementation 'org.springframework.kafka:spring-kafka:3.2.1'
+    implementation 'org.apache.kafka:kafka-streams:3.7.0'
+    implementation 'net.logstash.logback:logstash-logback-encoder:7.4'
 }
 
 task cleanResources(type: Delete) {
