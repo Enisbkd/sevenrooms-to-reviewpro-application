@@ -1,0 +1,175 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-client-photo-heading"
+        data-cy="ClientPhotoCreateUpdateHeading"
+        jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.home.createOrEditLabel"
+      >
+        Create or edit a Client Photo
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.id">ID</label>
+            <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_large" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.large">Large</label>
+          <input type="text" class="form-control" name="large" id="field_large" data-cy="large" formControlName="large" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_largeHeight" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.largeHeight"
+            >Large Height</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="largeHeight"
+            id="field_largeHeight"
+            data-cy="largeHeight"
+            formControlName="largeHeight"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_largeWidth" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.largeWidth"
+            >Large Width</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="largeWidth"
+            id="field_largeWidth"
+            data-cy="largeWidth"
+            formControlName="largeWidth"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_medium" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.medium">Medium</label>
+          <input type="text" class="form-control" name="medium" id="field_medium" data-cy="medium" formControlName="medium" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_mediumHeight" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.mediumHeight"
+            >Medium Height</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="mediumHeight"
+            id="field_mediumHeight"
+            data-cy="mediumHeight"
+            formControlName="mediumHeight"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_mediumWidth" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.mediumWidth"
+            >Medium Width</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="mediumWidth"
+            id="field_mediumWidth"
+            data-cy="mediumWidth"
+            formControlName="mediumWidth"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_small" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.small">Small</label>
+          <input type="text" class="form-control" name="small" id="field_small" data-cy="small" formControlName="small" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_smallHeight" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.smallHeight"
+            >Small Height</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="smallHeight"
+            id="field_smallHeight"
+            data-cy="smallHeight"
+            formControlName="smallHeight"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_smallWidth" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.smallWidth"
+            >Small Width</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="smallWidth"
+            id="field_smallWidth"
+            data-cy="smallWidth"
+            formControlName="smallWidth"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_raw" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.raw">Raw</label>
+          <input type="text" class="form-control" name="raw" id="field_raw" data-cy="raw" formControlName="raw" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_cropx" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.cropx">Cropx</label>
+          <input type="number" class="form-control" name="cropx" id="field_cropx" data-cy="cropx" formControlName="cropx" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_cropy" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.cropy">Cropy</label>
+          <input type="number" class="form-control" name="cropy" id="field_cropy" data-cy="cropy" formControlName="cropy" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_cropHeight" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.cropHeight"
+            >Crop Height</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="cropHeight"
+            id="field_cropHeight"
+            data-cy="cropHeight"
+            formControlName="cropHeight"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_cropWidth" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientPhoto.cropWidth"
+            >Crop Width</label
+          >
+          <input type="number" class="form-control" name="cropWidth" id="field_cropWidth" data-cy="cropWidth" formControlName="cropWidth" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

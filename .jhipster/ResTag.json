@@ -1,0 +1,45 @@
+{
+  "annotations": {
+    "changelogDate": "20240626143543"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "tag",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tagDisplay",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "group",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "groupDisplay",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "color",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tagSearchQuery",
+      "fieldType": "String"
+    }
+  ],
+  "name": "ResTag",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "reservation",
+      "otherEntityRelationshipName": "resTag",
+      "relationshipName": "reservation",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

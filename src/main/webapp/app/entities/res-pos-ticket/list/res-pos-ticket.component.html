@@ -1,0 +1,222 @@
+<div>
+  <h2 id="page-heading" data-cy="ResPosTicketHeading">
+    <span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.home.title">Res Pos Tickets</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-res-pos-ticket"
+        [routerLink]="['/res-pos-ticket/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.home.createLabel">Create a new Res Pos Ticket</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (resPosTickets?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.home.notFound">No Res Pos Tickets found</span>
+    </div>
+  }
+
+  @if (resPosTickets && resPosTickets.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="status">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.status">Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="adminFee">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.adminFee">Admin Fee</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="code">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.code">Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tableNo">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.tableNo">Table No</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tax">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.tax">Tax</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="businessId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.businessId">Business Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="ticketId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.ticketId">Ticket Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="localPosticketId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.localPosticketId">Local Posticket Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="employeeName">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.employeeName">Employee Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="total">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.total">Total</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="subtotal">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.subtotal">Subtotal</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="startTime">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.startTime">Start Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="serviceCharge">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.serviceCharge">Service Charge</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="endtime">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.endtime">Endtime</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="reservation.id">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.reservation">Reservation</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (resPosTicket of resPosTickets; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/res-pos-ticket', resPosTicket.id, 'view']">{{ resPosTicket.id }}</a>
+              </td>
+              <td>{{ resPosTicket.status }}</td>
+              <td>{{ resPosTicket.adminFee }}</td>
+              <td>{{ resPosTicket.code }}</td>
+              <td>{{ resPosTicket.tableNo }}</td>
+              <td>{{ resPosTicket.tax }}</td>
+              <td>{{ resPosTicket.businessId }}</td>
+              <td>{{ resPosTicket.ticketId }}</td>
+              <td>{{ resPosTicket.localPosticketId }}</td>
+              <td>{{ resPosTicket.employeeName }}</td>
+              <td>{{ resPosTicket.total }}</td>
+              <td>{{ resPosTicket.subtotal }}</td>
+              <td>{{ resPosTicket.startTime }}</td>
+              <td>{{ resPosTicket.serviceCharge }}</td>
+              <td>{{ resPosTicket.endtime }}</td>
+              <td>
+                @if (resPosTicket.reservation) {
+                  <div>
+                    <a [routerLink]="['/reservation', resPosTicket.reservation.id, 'view']">{{ resPosTicket.reservation.id }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/res-pos-ticket', resPosTicket.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/res-pos-ticket', resPosTicket.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(resPosTicket)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (resPosTickets && resPosTickets.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

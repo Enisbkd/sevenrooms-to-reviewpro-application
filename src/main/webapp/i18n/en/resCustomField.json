@@ -1,0 +1,28 @@
+{
+  "sevenRoomsToReviewProApplicationApp": {
+    "resCustomField": {
+      "home": {
+        "title": "Res Custom Fields",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Res Custom Field",
+        "createOrEditLabel": "Create or edit a Res Custom Field",
+        "notFound": "No Res Custom Fields found"
+      },
+      "created": "A new Res Custom Field is created with identifier {{ param }}",
+      "updated": "A Res Custom Field is updated with identifier {{ param }}",
+      "deleted": "A Res Custom Field is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Res Custom Field {{ id }}?"
+      },
+      "detail": {
+        "title": "Res Custom Field"
+      },
+      "id": "ID",
+      "systemName": "System Name",
+      "displayOrder": "Display Order",
+      "name": "Name",
+      "value": "Value",
+      "reservation": "Reservation"
+    }
+  }
+}

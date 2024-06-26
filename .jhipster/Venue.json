@@ -1,0 +1,117 @@
+{
+  "annotations": {
+    "changelogDate": "20240626143545"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "blackLogo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "country",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "crossStreet",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "currencyCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "externalVenueId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fullDiningBackend",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "gridEnabled",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "venueId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "internalName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "membershipEnabled",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "neighborhood",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "policy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "postalCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "primaryColor",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "secondaryColor",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "state",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "uniqueConfirmationPrefix",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "venueClass",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "venueGroupId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "venueGroupName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "venueUrlKey",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "website",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "whiteLogo",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Venue",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

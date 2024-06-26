@@ -1,0 +1,333 @@
+
+entity RvpGuest {
+	pmsId String
+    firstName String
+    lastName String
+    language String
+    checkin LocalDate
+    checkout LocalDate
+    email String
+    emailAlt String
+    salutation String
+}
+
+
+entity Client {
+	clientId String
+	createdDate String
+	updatedDate String
+	deletedDate String
+	lastname String
+	firstname String
+	gender String
+	salutation String
+	title String
+	birthdayDay Integer
+	birthdayMonth Integer
+	birthdayAltMonth Integer
+	anniversaryDay Integer
+	anniversaryMonth Integer
+	company String
+	email String
+	emailAlt String
+	phoneNumber String
+	phoneNumberlocale String
+	phoneNumberalt String
+	phoneNumberaltlocale String
+	address String
+	address2 String
+	city String
+	postalCode String
+	state String
+	country String
+	isContactPrivate Boolean
+	isOnetimeGuest Boolean
+	status String
+	loyaltyId String
+	loyaltyRank Integer
+	loyaltyTier String
+	marketingOptin Boolean
+	marketingOptints String
+    marketingOptOutts String
+	hasBillingProfile Boolean
+	notes String
+	privateNotes String
+	tags String
+	totalVisits Double
+	totalCovers Double
+	totalCancellations Double
+	totalNoShows Double
+	totalSpend Double
+	totalSpendPerCover Double
+	totalspendPerVisit Double
+	avgRating Double
+	referenceCode String
+	externalUserId String
+	venueGroupId String
+	birthdayAltDay Integer
+	userId String
+	userName String
+    totalOrderCount Integer
+    preferredLanguageCode String
+}
+
+entity MemberGroup {
+
+}
+
+entity ClientTag {
+	tag String
+	tagDisplay String
+	group String
+	groupDisplay String
+	color String
+	tagSearchQuery String	
+}
+entity CustomField {
+	systemName String
+	displayOrder Integer
+	name String
+	value String
+}
+
+entity ClientVenueStats {
+	totalSpendLocalperCover Double
+	lastVisitDate String
+	totalCancellations Integer
+	totalCovers Integer
+	avgRating Integer
+	totalSpendperCover Double
+	totalSpend Double
+	totalNoShows Integer
+	numRatings Integer
+	totalSpendPerVisit Double
+	totalSpendLocal Double
+	totalSpendLocalPerVisit Double
+	totalVisits Integer
+    grossTotal Double
+    totalOrderCount Double
+    totalOrderCancellations Double
+	totalOrderSpend Double
+    grossOrderTotal Double
+	totalOrderSpendLocal Double
+	lastOrderDate String
+	totalSpendperOrder Double
+	totalSpendLocalperOrder Double
+	venueId String
+    venueMarketingOptin Boolean
+	venueMarketingOptints String
+}
+
+entity BookingName{
+	name String
+}
+
+entity ClientPhoto{
+	large String
+	largeHeight Integer
+	largeWidth Integer
+	medium String
+	mediumHeight Integer
+	mediumWidth Integer
+	small String
+	smallHeight Integer
+	smallWidth Integer
+	raw String
+	cropx Integer
+	cropy Integer
+	cropHeight Double
+	cropWidth Double
+  
+}
+
+relationship OneToMany {
+  Client to CustomField
+  Client to ClientTag
+  Client to MemberGroup
+  ClientVenueStats to BookingName
+}
+
+relationship OneToOne {
+  Client to ClientPhoto
+  Client to ClientVenueStats
+}
+
+entity Reservation{
+	resvId String
+	created String
+	updated String
+	deleted String
+	venueGroupClientId String
+	venueGroupId String
+	venueId String
+	date String
+	duration Integer
+	checkNumbers String
+	shiftCategory String
+	shiftPersistentId String
+	maxGuests Integer
+	mfratioMale Integer
+	mfratioFemale Integer
+	status String
+	statusDisplay String
+	statusSimple String
+	accessPersistentId String
+	arrivedGuests Integer
+	isvip  Boolean
+	bookedby String
+	clientReferenceCode String
+	lastname String
+	firstname String
+	email String
+	phoneNumber String
+	address String
+	address2 String
+	city String
+	postalCode String
+	state String
+	country String
+	loyaltyId String
+	loyaltyRank Integer
+	loyaltyTier String
+	notes String
+	arrivalTime String
+	seatedTime String
+	leftTime String
+	clientRequests String
+	comps Integer
+	compsPriceType String
+	costOption Integer
+	policy String
+	minPrice Integer
+	prePayment Double
+	onsitePayment Double
+	totalPayment Integer
+	paidBy String
+	servedBy String
+	rating Integer
+	problems String
+	autoAssignments String
+	externalClientId String
+	externalId String
+	externalReferenceCode String
+	externalUserId String
+	modifyReservationLink String
+	referenceCode String
+	reservationSmsOptin Boolean
+	reservationType String
+	sendReminderEmail Boolean
+	sendreminderSms Boolean
+	sourceClientId String
+	userId String
+	userName String
+    accessPersistentId String
+  
+}
+
+entity ResCustomField{
+	systemName String
+	displayOrder Integer
+	name String
+	value String
+  
+}
+
+entity ResPosTicket{
+	status String
+	adminFee Double
+	code Integer
+	tableNo String
+	tax Double
+	businessId Integer
+	ticketId Integer
+    localPosticketId String
+	employeeName String
+	total Double
+	subtotal Double
+	startTime String
+	serviceCharge Double
+	endtime String
+  
+}
+
+entity ResPosticketsItem{
+	price Double
+	name String
+	quantity Integer
+  
+}
+
+entity ResTag{
+	tag String
+	tagDisplay String
+	group String
+	groupDisplay String
+	color String
+	tagSearchQuery String
+}
+
+entity ResTable{
+	tableNumber String
+}
+
+relationship OneToMany {
+  Reservation to ResTag
+  Reservation to ResPosTicket
+  Reservation to ResCustomField
+  ResPosTicket to ResPosticketsItem
+}
+
+relationship OneToMany {
+  Reservation to ResTable
+}
+
+
+
+
+entity Venue{
+address String
+blackLogo String
+country String
+crossStreet String
+currencyCode String
+externalVenueId String
+fullDiningBackend Boolean
+gridEnabled Boolean
+venueId	String
+internalName String
+membershipEnabled Boolean
+name String
+neighborhood String
+phoneNumber String
+policy String
+postalCode	String
+primaryColor String
+secondaryColor	String
+state String
+uniqueConfirmationPrefix String
+venueClass	String
+venueGroupId String
+venueGroupName String
+venueUrlKey String
+website	String
+whiteLogo String
+}
+
+
+
+paginate MemberGroup with pagination
+paginate ClientTag with pagination
+paginate CustomField with pagination
+paginate ClientVenueStats with pagination
+paginate ClientPhoto with pagination
+paginate Reservation with pagination
+paginate ResCustomField with pagination
+paginate ResPosTicket with pagination
+paginate ResPosticketsItem with pagination
+paginate ResTag with pagination
+paginate Client with pagination
+paginate BookingName with pagination
+paginate Venue with pagination
+
+service all with serviceImpl
+

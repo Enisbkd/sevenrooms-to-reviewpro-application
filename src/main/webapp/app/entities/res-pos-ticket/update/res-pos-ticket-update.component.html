@@ -1,0 +1,180 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-res-pos-ticket-heading"
+        data-cy="ResPosTicketCreateUpdateHeading"
+        jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.home.createOrEditLabel"
+      >
+        Create or edit a Res Pos Ticket
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.id">ID</label>
+            <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_status" jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.status">Status</label>
+          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_adminFee" jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.adminFee"
+            >Admin Fee</label
+          >
+          <input type="number" class="form-control" name="adminFee" id="field_adminFee" data-cy="adminFee" formControlName="adminFee" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_code" jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.code">Code</label>
+          <input type="number" class="form-control" name="code" id="field_code" data-cy="code" formControlName="code" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_tableNo" jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.tableNo"
+            >Table No</label
+          >
+          <input type="text" class="form-control" name="tableNo" id="field_tableNo" data-cy="tableNo" formControlName="tableNo" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_tax" jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.tax">Tax</label>
+          <input type="number" class="form-control" name="tax" id="field_tax" data-cy="tax" formControlName="tax" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_businessId" jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.businessId"
+            >Business Id</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="businessId"
+            id="field_businessId"
+            data-cy="businessId"
+            formControlName="businessId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_ticketId" jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.ticketId"
+            >Ticket Id</label
+          >
+          <input type="number" class="form-control" name="ticketId" id="field_ticketId" data-cy="ticketId" formControlName="ticketId" />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_localPosticketId"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.localPosticketId"
+            >Local Posticket Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="localPosticketId"
+            id="field_localPosticketId"
+            data-cy="localPosticketId"
+            formControlName="localPosticketId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_employeeName" jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.employeeName"
+            >Employee Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="employeeName"
+            id="field_employeeName"
+            data-cy="employeeName"
+            formControlName="employeeName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_total" jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.total">Total</label>
+          <input type="number" class="form-control" name="total" id="field_total" data-cy="total" formControlName="total" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_subtotal" jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.subtotal"
+            >Subtotal</label
+          >
+          <input type="number" class="form-control" name="subtotal" id="field_subtotal" data-cy="subtotal" formControlName="subtotal" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_startTime" jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.startTime"
+            >Start Time</label
+          >
+          <input type="text" class="form-control" name="startTime" id="field_startTime" data-cy="startTime" formControlName="startTime" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_serviceCharge" jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.serviceCharge"
+            >Service Charge</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="serviceCharge"
+            id="field_serviceCharge"
+            data-cy="serviceCharge"
+            formControlName="serviceCharge"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_endtime" jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.endtime"
+            >Endtime</label
+          >
+          <input type="text" class="form-control" name="endtime" id="field_endtime" data-cy="endtime" formControlName="endtime" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_reservation" jhiTranslate="sevenRoomsToReviewProApplicationApp.resPosTicket.reservation"
+            >Reservation</label
+          >
+          <select
+            class="form-control"
+            id="field_reservation"
+            data-cy="reservation"
+            name="reservation"
+            formControlName="reservation"
+            [compareWith]="compareReservation"
+          >
+            <option [ngValue]="null"></option>
+            @for (reservationOption of reservationsSharedCollection; track $index) {
+              <option [ngValue]="reservationOption">{{ reservationOption.id }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

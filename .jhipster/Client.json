@@ -1,0 +1,273 @@
+{
+  "annotations": {
+    "changelogDate": "20240626143532"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "clientId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updatedDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deletedDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastname",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "firstname",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "gender",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "salutation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "birthdayDay",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "birthdayMonth",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "birthdayAltMonth",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "anniversaryDay",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "anniversaryMonth",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "company",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "emailAlt",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNumberlocale",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNumberalt",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNumberaltlocale",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "postalCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "state",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "country",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isContactPrivate",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isOnetimeGuest",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "loyaltyId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "loyaltyRank",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "loyaltyTier",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "marketingOptin",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "marketingOptints",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "marketingOptOutts",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hasBillingProfile",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "notes",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "privateNotes",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tags",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "totalVisits",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalCovers",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalCancellations",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalNoShows",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalSpend",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalSpendPerCover",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalspendPerVisit",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "avgRating",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "referenceCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "externalUserId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "venueGroupId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "birthdayAltDay",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "userId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "userName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "totalOrderCount",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "preferredLanguageCode",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Client",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "clientPhoto",
+      "otherEntityRelationshipName": "client",
+      "relationshipName": "clientPhoto",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "clientVenueStats",
+      "otherEntityRelationshipName": "client",
+      "relationshipName": "clientVenueStats",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "customField",
+      "otherEntityRelationshipName": "client",
+      "relationshipName": "customField",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "clientTag",
+      "otherEntityRelationshipName": "client",
+      "relationshipName": "clientTag",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "memberGroup",
+      "otherEntityRelationshipName": "client",
+      "relationshipName": "memberGroup",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

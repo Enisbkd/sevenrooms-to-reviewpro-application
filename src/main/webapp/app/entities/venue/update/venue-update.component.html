@@ -1,0 +1,330 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-venue-heading"
+        data-cy="VenueCreateUpdateHeading"
+        jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.home.createOrEditLabel"
+      >
+        Create or edit a Venue
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.id">ID</label>
+            <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_address" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.address">Address</label>
+          <input type="text" class="form-control" name="address" id="field_address" data-cy="address" formControlName="address" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_blackLogo" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.blackLogo"
+            >Black Logo</label
+          >
+          <input type="text" class="form-control" name="blackLogo" id="field_blackLogo" data-cy="blackLogo" formControlName="blackLogo" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_country" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.country">Country</label>
+          <input type="text" class="form-control" name="country" id="field_country" data-cy="country" formControlName="country" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_crossStreet" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.crossStreet"
+            >Cross Street</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="crossStreet"
+            id="field_crossStreet"
+            data-cy="crossStreet"
+            formControlName="crossStreet"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_currencyCode" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.currencyCode"
+            >Currency Code</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="currencyCode"
+            id="field_currencyCode"
+            data-cy="currencyCode"
+            formControlName="currencyCode"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_externalVenueId" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.externalVenueId"
+            >External Venue Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="externalVenueId"
+            id="field_externalVenueId"
+            data-cy="externalVenueId"
+            formControlName="externalVenueId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_fullDiningBackend" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.fullDiningBackend"
+            >Full Dining Backend</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="fullDiningBackend"
+            id="field_fullDiningBackend"
+            data-cy="fullDiningBackend"
+            formControlName="fullDiningBackend"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_gridEnabled" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.gridEnabled"
+            >Grid Enabled</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="gridEnabled"
+            id="field_gridEnabled"
+            data-cy="gridEnabled"
+            formControlName="gridEnabled"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_venueId" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.venueId">Venue Id</label>
+          <input type="text" class="form-control" name="venueId" id="field_venueId" data-cy="venueId" formControlName="venueId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_internalName" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.internalName"
+            >Internal Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="internalName"
+            id="field_internalName"
+            data-cy="internalName"
+            formControlName="internalName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_membershipEnabled" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.membershipEnabled"
+            >Membership Enabled</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="membershipEnabled"
+            id="field_membershipEnabled"
+            data-cy="membershipEnabled"
+            formControlName="membershipEnabled"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_name" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_neighborhood" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.neighborhood"
+            >Neighborhood</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="neighborhood"
+            id="field_neighborhood"
+            data-cy="neighborhood"
+            formControlName="neighborhood"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_phoneNumber" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.phoneNumber"
+            >Phone Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="phoneNumber"
+            id="field_phoneNumber"
+            data-cy="phoneNumber"
+            formControlName="phoneNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_policy" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.policy">Policy</label>
+          <input type="text" class="form-control" name="policy" id="field_policy" data-cy="policy" formControlName="policy" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_postalCode" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.postalCode"
+            >Postal Code</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="postalCode"
+            id="field_postalCode"
+            data-cy="postalCode"
+            formControlName="postalCode"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_primaryColor" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.primaryColor"
+            >Primary Color</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="primaryColor"
+            id="field_primaryColor"
+            data-cy="primaryColor"
+            formControlName="primaryColor"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_secondaryColor" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.secondaryColor"
+            >Secondary Color</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="secondaryColor"
+            id="field_secondaryColor"
+            data-cy="secondaryColor"
+            formControlName="secondaryColor"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_state" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.state">State</label>
+          <input type="text" class="form-control" name="state" id="field_state" data-cy="state" formControlName="state" />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_uniqueConfirmationPrefix"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.uniqueConfirmationPrefix"
+            >Unique Confirmation Prefix</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="uniqueConfirmationPrefix"
+            id="field_uniqueConfirmationPrefix"
+            data-cy="uniqueConfirmationPrefix"
+            formControlName="uniqueConfirmationPrefix"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_venueClass" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.venueClass"
+            >Venue Class</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="venueClass"
+            id="field_venueClass"
+            data-cy="venueClass"
+            formControlName="venueClass"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_venueGroupId" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.venueGroupId"
+            >Venue Group Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="venueGroupId"
+            id="field_venueGroupId"
+            data-cy="venueGroupId"
+            formControlName="venueGroupId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_venueGroupName" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.venueGroupName"
+            >Venue Group Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="venueGroupName"
+            id="field_venueGroupName"
+            data-cy="venueGroupName"
+            formControlName="venueGroupName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_venueUrlKey" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.venueUrlKey"
+            >Venue Url Key</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="venueUrlKey"
+            id="field_venueUrlKey"
+            data-cy="venueUrlKey"
+            formControlName="venueUrlKey"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_website" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.website">Website</label>
+          <input type="text" class="form-control" name="website" id="field_website" data-cy="website" formControlName="website" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_whiteLogo" jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.whiteLogo"
+            >White Logo</label
+          >
+          <input type="text" class="form-control" name="whiteLogo" id="field_whiteLogo" data-cy="whiteLogo" formControlName="whiteLogo" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

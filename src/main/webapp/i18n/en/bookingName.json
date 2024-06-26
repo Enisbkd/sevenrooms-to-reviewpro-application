@@ -1,0 +1,25 @@
+{
+  "sevenRoomsToReviewProApplicationApp": {
+    "bookingName": {
+      "home": {
+        "title": "Booking Names",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Booking Name",
+        "createOrEditLabel": "Create or edit a Booking Name",
+        "notFound": "No Booking Names found"
+      },
+      "created": "A new Booking Name is created with identifier {{ param }}",
+      "updated": "A Booking Name is updated with identifier {{ param }}",
+      "deleted": "A Booking Name is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Booking Name {{ id }}?"
+      },
+      "detail": {
+        "title": "Booking Name"
+      },
+      "id": "ID",
+      "name": "Name",
+      "clientVenueStats": "Client Venue Stats"
+    }
+  }
+}

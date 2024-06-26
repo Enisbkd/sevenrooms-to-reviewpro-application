@@ -1,0 +1,32 @@
+{
+  "sevenRoomsToReviewProApplicationApp": {
+    "rvpGuest": {
+      "home": {
+        "title": "Rvp Guests",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Rvp Guest",
+        "createOrEditLabel": "Create or edit a Rvp Guest",
+        "notFound": "No Rvp Guests found"
+      },
+      "created": "A new Rvp Guest is created with identifier {{ param }}",
+      "updated": "A Rvp Guest is updated with identifier {{ param }}",
+      "deleted": "A Rvp Guest is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Rvp Guest {{ id }}?"
+      },
+      "detail": {
+        "title": "Rvp Guest"
+      },
+      "id": "ID",
+      "pmsId": "Pms Id",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "language": "Language",
+      "checkin": "Checkin",
+      "checkout": "Checkout",
+      "email": "Email",
+      "emailAlt": "Email Alt",
+      "salutation": "Salutation"
+    }
+  }
+}

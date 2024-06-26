@@ -1,0 +1,571 @@
+<div>
+  <h2 id="page-heading" data-cy="ClientHeading">
+    <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.home.title">Clients</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-client"
+        [routerLink]="['/client/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.home.createLabel">Create a new Client</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (clients?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.home.notFound">No Clients found</span>
+    </div>
+  }
+
+  @if (clients && clients.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="clientId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.clientId">Client Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="createdDate">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.createdDate">Created Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="updatedDate">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.updatedDate">Updated Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="deletedDate">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.deletedDate">Deleted Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastname">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.lastname">Lastname</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="firstname">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.firstname">Firstname</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="gender">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.gender">Gender</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="salutation">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.salutation">Salutation</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="title">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.title">Title</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="birthdayDay">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.birthdayDay">Birthday Day</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="birthdayMonth">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.birthdayMonth">Birthday Month</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="birthdayAltMonth">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.birthdayAltMonth">Birthday Alt Month</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="anniversaryDay">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.anniversaryDay">Anniversary Day</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="anniversaryMonth">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.anniversaryMonth">Anniversary Month</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="company">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.company">Company</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="email">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.email">Email</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="emailAlt">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.emailAlt">Email Alt</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="phoneNumber">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.phoneNumber">Phone Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="phoneNumberlocale">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.phoneNumberlocale">Phone Numberlocale</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="phoneNumberalt">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.phoneNumberalt">Phone Numberalt</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="phoneNumberaltlocale">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.phoneNumberaltlocale">Phone Numberaltlocale</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="address">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.address">Address</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="address2">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.address2">Address 2</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="city">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.city">City</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="postalCode">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.postalCode">Postal Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="state">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.state">State</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="country">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.country">Country</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="isContactPrivate">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.isContactPrivate">Is Contact Private</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="isOnetimeGuest">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.isOnetimeGuest">Is Onetime Guest</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="status">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.status">Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="loyaltyId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.loyaltyId">Loyalty Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="loyaltyRank">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.loyaltyRank">Loyalty Rank</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="loyaltyTier">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.loyaltyTier">Loyalty Tier</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="marketingOptin">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.marketingOptin">Marketing Optin</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="marketingOptints">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.marketingOptints">Marketing Optints</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="marketingOptOutts">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.marketingOptOutts">Marketing Opt Outts</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="hasBillingProfile">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.hasBillingProfile">Has Billing Profile</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="notes">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.notes">Notes</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="privateNotes">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.privateNotes">Private Notes</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tags">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.tags">Tags</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalVisits">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.totalVisits">Total Visits</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalCovers">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.totalCovers">Total Covers</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalCancellations">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.totalCancellations">Total Cancellations</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalNoShows">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.totalNoShows">Total No Shows</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalSpend">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.totalSpend">Total Spend</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalSpendPerCover">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.totalSpendPerCover">Total Spend Per Cover</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalspendPerVisit">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.totalspendPerVisit">Totalspend Per Visit</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="avgRating">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.avgRating">Avg Rating</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="referenceCode">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.referenceCode">Reference Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="externalUserId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.externalUserId">External User Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="venueGroupId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.venueGroupId">Venue Group Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="birthdayAltDay">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.birthdayAltDay">Birthday Alt Day</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="userId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.userId">User Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="userName">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.userName">User Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalOrderCount">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.totalOrderCount">Total Order Count</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="preferredLanguageCode">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.preferredLanguageCode">Preferred Language Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="clientPhoto.id">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.clientPhoto">Client Photo</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="clientVenueStats.id">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.client.clientVenueStats">Client Venue Stats</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (client of clients; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/client', client.id, 'view']">{{ client.id }}</a>
+              </td>
+              <td>{{ client.clientId }}</td>
+              <td>{{ client.createdDate }}</td>
+              <td>{{ client.updatedDate }}</td>
+              <td>{{ client.deletedDate }}</td>
+              <td>{{ client.lastname }}</td>
+              <td>{{ client.firstname }}</td>
+              <td>{{ client.gender }}</td>
+              <td>{{ client.salutation }}</td>
+              <td>{{ client.title }}</td>
+              <td>{{ client.birthdayDay }}</td>
+              <td>{{ client.birthdayMonth }}</td>
+              <td>{{ client.birthdayAltMonth }}</td>
+              <td>{{ client.anniversaryDay }}</td>
+              <td>{{ client.anniversaryMonth }}</td>
+              <td>{{ client.company }}</td>
+              <td>{{ client.email }}</td>
+              <td>{{ client.emailAlt }}</td>
+              <td>{{ client.phoneNumber }}</td>
+              <td>{{ client.phoneNumberlocale }}</td>
+              <td>{{ client.phoneNumberalt }}</td>
+              <td>{{ client.phoneNumberaltlocale }}</td>
+              <td>{{ client.address }}</td>
+              <td>{{ client.address2 }}</td>
+              <td>{{ client.city }}</td>
+              <td>{{ client.postalCode }}</td>
+              <td>{{ client.state }}</td>
+              <td>{{ client.country }}</td>
+              <td>{{ client.isContactPrivate }}</td>
+              <td>{{ client.isOnetimeGuest }}</td>
+              <td>{{ client.status }}</td>
+              <td>{{ client.loyaltyId }}</td>
+              <td>{{ client.loyaltyRank }}</td>
+              <td>{{ client.loyaltyTier }}</td>
+              <td>{{ client.marketingOptin }}</td>
+              <td>{{ client.marketingOptints }}</td>
+              <td>{{ client.marketingOptOutts }}</td>
+              <td>{{ client.hasBillingProfile }}</td>
+              <td>{{ client.notes }}</td>
+              <td>{{ client.privateNotes }}</td>
+              <td>{{ client.tags }}</td>
+              <td>{{ client.totalVisits }}</td>
+              <td>{{ client.totalCovers }}</td>
+              <td>{{ client.totalCancellations }}</td>
+              <td>{{ client.totalNoShows }}</td>
+              <td>{{ client.totalSpend }}</td>
+              <td>{{ client.totalSpendPerCover }}</td>
+              <td>{{ client.totalspendPerVisit }}</td>
+              <td>{{ client.avgRating }}</td>
+              <td>{{ client.referenceCode }}</td>
+              <td>{{ client.externalUserId }}</td>
+              <td>{{ client.venueGroupId }}</td>
+              <td>{{ client.birthdayAltDay }}</td>
+              <td>{{ client.userId }}</td>
+              <td>{{ client.userName }}</td>
+              <td>{{ client.totalOrderCount }}</td>
+              <td>{{ client.preferredLanguageCode }}</td>
+              <td>
+                @if (client.clientPhoto) {
+                  <div>
+                    <a [routerLink]="['/client-photo', client.clientPhoto.id, 'view']">{{ client.clientPhoto.id }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (client.clientVenueStats) {
+                  <div>
+                    <a [routerLink]="['/client-venue-stats', client.clientVenueStats.id, 'view']">{{ client.clientVenueStats.id }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/client', client.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/client', client.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(client)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (clients && clients.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

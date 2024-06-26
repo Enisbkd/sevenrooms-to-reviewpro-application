@@ -1,0 +1,305 @@
+<div>
+  <h2 id="page-heading" data-cy="VenueHeading">
+    <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.home.title">Venues</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-venue"
+        [routerLink]="['/venue/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.home.createLabel">Create a new Venue</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (venues?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.home.notFound">No Venues found</span>
+    </div>
+  }
+
+  @if (venues && venues.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="address">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.address">Address</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="blackLogo">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.blackLogo">Black Logo</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="country">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.country">Country</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="crossStreet">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.crossStreet">Cross Street</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="currencyCode">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.currencyCode">Currency Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="externalVenueId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.externalVenueId">External Venue Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="fullDiningBackend">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.fullDiningBackend">Full Dining Backend</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="gridEnabled">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.gridEnabled">Grid Enabled</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="venueId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.venueId">Venue Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="internalName">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.internalName">Internal Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="membershipEnabled">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.membershipEnabled">Membership Enabled</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="name">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.name">Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="neighborhood">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.neighborhood">Neighborhood</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="phoneNumber">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.phoneNumber">Phone Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="policy">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.policy">Policy</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="postalCode">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.postalCode">Postal Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="primaryColor">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.primaryColor">Primary Color</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="secondaryColor">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.secondaryColor">Secondary Color</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="state">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.state">State</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="uniqueConfirmationPrefix">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.uniqueConfirmationPrefix">Unique Confirmation Prefix</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="venueClass">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.venueClass">Venue Class</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="venueGroupId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.venueGroupId">Venue Group Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="venueGroupName">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.venueGroupName">Venue Group Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="venueUrlKey">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.venueUrlKey">Venue Url Key</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="website">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.website">Website</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="whiteLogo">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.venue.whiteLogo">White Logo</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (venue of venues; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/venue', venue.id, 'view']">{{ venue.id }}</a>
+              </td>
+              <td>{{ venue.address }}</td>
+              <td>{{ venue.blackLogo }}</td>
+              <td>{{ venue.country }}</td>
+              <td>{{ venue.crossStreet }}</td>
+              <td>{{ venue.currencyCode }}</td>
+              <td>{{ venue.externalVenueId }}</td>
+              <td>{{ venue.fullDiningBackend }}</td>
+              <td>{{ venue.gridEnabled }}</td>
+              <td>{{ venue.venueId }}</td>
+              <td>{{ venue.internalName }}</td>
+              <td>{{ venue.membershipEnabled }}</td>
+              <td>{{ venue.name }}</td>
+              <td>{{ venue.neighborhood }}</td>
+              <td>{{ venue.phoneNumber }}</td>
+              <td>{{ venue.policy }}</td>
+              <td>{{ venue.postalCode }}</td>
+              <td>{{ venue.primaryColor }}</td>
+              <td>{{ venue.secondaryColor }}</td>
+              <td>{{ venue.state }}</td>
+              <td>{{ venue.uniqueConfirmationPrefix }}</td>
+              <td>{{ venue.venueClass }}</td>
+              <td>{{ venue.venueGroupId }}</td>
+              <td>{{ venue.venueGroupName }}</td>
+              <td>{{ venue.venueUrlKey }}</td>
+              <td>{{ venue.website }}</td>
+              <td>{{ venue.whiteLogo }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/venue', venue.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/venue', venue.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(venue)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (venues && venues.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

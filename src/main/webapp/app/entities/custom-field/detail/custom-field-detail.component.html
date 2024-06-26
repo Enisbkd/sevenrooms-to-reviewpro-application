@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (customField()) {
+      <div>
+        <h2 data-cy="customFieldDetailsHeading">
+          <span jhiTranslate="sevenRoomsToReviewProApplicationApp.customField.detail.title">Custom Field</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ customField()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.customField.systemName">System Name</span></dt>
+          <dd>
+            <span>{{ customField()!.systemName }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.customField.displayOrder">Display Order</span></dt>
+          <dd>
+            <span>{{ customField()!.displayOrder }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.customField.name">Name</span></dt>
+          <dd>
+            <span>{{ customField()!.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.customField.value">Value</span></dt>
+          <dd>
+            <span>{{ customField()!.value }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.customField.client">Client</span></dt>
+          <dd>
+            @if (customField()!.client) {
+              <div>
+                <a [routerLink]="['/client', customField()!.client?.id, 'view']">{{ customField()!.client?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/custom-field', customField()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

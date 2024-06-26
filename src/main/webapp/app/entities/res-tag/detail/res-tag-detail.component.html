@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (resTag()) {
+      <div>
+        <h2 data-cy="resTagDetailsHeading"><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resTag.detail.title">Res Tag</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ resTag()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resTag.tag">Tag</span></dt>
+          <dd>
+            <span>{{ resTag()!.tag }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resTag.tagDisplay">Tag Display</span></dt>
+          <dd>
+            <span>{{ resTag()!.tagDisplay }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resTag.group">Group</span></dt>
+          <dd>
+            <span>{{ resTag()!.group }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resTag.groupDisplay">Group Display</span></dt>
+          <dd>
+            <span>{{ resTag()!.groupDisplay }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resTag.color">Color</span></dt>
+          <dd>
+            <span>{{ resTag()!.color }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resTag.tagSearchQuery">Tag Search Query</span></dt>
+          <dd>
+            <span>{{ resTag()!.tagSearchQuery }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.resTag.reservation">Reservation</span></dt>
+          <dd>
+            @if (resTag()!.reservation) {
+              <div>
+                <a [routerLink]="['/reservation', resTag()!.reservation?.id, 'view']">{{ resTag()!.reservation?.id }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/res-tag', resTag()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (rvpGuest()) {
+      <div>
+        <h2 data-cy="rvpGuestDetailsHeading">
+          <span jhiTranslate="sevenRoomsToReviewProApplicationApp.rvpGuest.detail.title">Rvp Guest</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ rvpGuest()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.rvpGuest.pmsId">Pms Id</span></dt>
+          <dd>
+            <span>{{ rvpGuest()!.pmsId }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.rvpGuest.firstName">First Name</span></dt>
+          <dd>
+            <span>{{ rvpGuest()!.firstName }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.rvpGuest.lastName">Last Name</span></dt>
+          <dd>
+            <span>{{ rvpGuest()!.lastName }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.rvpGuest.language">Language</span></dt>
+          <dd>
+            <span>{{ rvpGuest()!.language }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.rvpGuest.checkin">Checkin</span></dt>
+          <dd>
+            <span>{{ rvpGuest()!.checkin | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.rvpGuest.checkout">Checkout</span></dt>
+          <dd>
+            <span>{{ rvpGuest()!.checkout | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.rvpGuest.email">Email</span></dt>
+          <dd>
+            <span>{{ rvpGuest()!.email }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.rvpGuest.emailAlt">Email Alt</span></dt>
+          <dd>
+            <span>{{ rvpGuest()!.emailAlt }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.rvpGuest.salutation">Salutation</span></dt>
+          <dd>
+            <span>{{ rvpGuest()!.salutation }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/rvp-guest', rvpGuest()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

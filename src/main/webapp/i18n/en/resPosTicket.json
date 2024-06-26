@@ -1,0 +1,39 @@
+{
+  "sevenRoomsToReviewProApplicationApp": {
+    "resPosTicket": {
+      "home": {
+        "title": "Res Pos Tickets",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Res Pos Ticket",
+        "createOrEditLabel": "Create or edit a Res Pos Ticket",
+        "notFound": "No Res Pos Tickets found"
+      },
+      "created": "A new Res Pos Ticket is created with identifier {{ param }}",
+      "updated": "A Res Pos Ticket is updated with identifier {{ param }}",
+      "deleted": "A Res Pos Ticket is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Res Pos Ticket {{ id }}?"
+      },
+      "detail": {
+        "title": "Res Pos Ticket"
+      },
+      "id": "ID",
+      "status": "Status",
+      "adminFee": "Admin Fee",
+      "code": "Code",
+      "tableNo": "Table No",
+      "tax": "Tax",
+      "businessId": "Business Id",
+      "ticketId": "Ticket Id",
+      "localPosticketId": "Local Posticket Id",
+      "employeeName": "Employee Name",
+      "total": "Total",
+      "subtotal": "Subtotal",
+      "startTime": "Start Time",
+      "serviceCharge": "Service Charge",
+      "endtime": "Endtime",
+      "resPosticketsItem": "Res Postickets Item",
+      "reservation": "Reservation"
+    }
+  }
+}

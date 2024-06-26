@@ -1,0 +1,49 @@
+{
+  "sevenRoomsToReviewProApplicationApp": {
+    "venue": {
+      "home": {
+        "title": "Venues",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Venue",
+        "createOrEditLabel": "Create or edit a Venue",
+        "notFound": "No Venues found"
+      },
+      "created": "A new Venue is created with identifier {{ param }}",
+      "updated": "A Venue is updated with identifier {{ param }}",
+      "deleted": "A Venue is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Venue {{ id }}?"
+      },
+      "detail": {
+        "title": "Venue"
+      },
+      "id": "ID",
+      "address": "Address",
+      "blackLogo": "Black Logo",
+      "country": "Country",
+      "crossStreet": "Cross Street",
+      "currencyCode": "Currency Code",
+      "externalVenueId": "External Venue Id",
+      "fullDiningBackend": "Full Dining Backend",
+      "gridEnabled": "Grid Enabled",
+      "venueId": "Venue Id",
+      "internalName": "Internal Name",
+      "membershipEnabled": "Membership Enabled",
+      "name": "Name",
+      "neighborhood": "Neighborhood",
+      "phoneNumber": "Phone Number",
+      "policy": "Policy",
+      "postalCode": "Postal Code",
+      "primaryColor": "Primary Color",
+      "secondaryColor": "Secondary Color",
+      "state": "State",
+      "uniqueConfirmationPrefix": "Unique Confirmation Prefix",
+      "venueClass": "Venue Class",
+      "venueGroupId": "Venue Group Id",
+      "venueGroupName": "Venue Group Name",
+      "venueUrlKey": "Venue Url Key",
+      "website": "Website",
+      "whiteLogo": "White Logo"
+    }
+  }
+}

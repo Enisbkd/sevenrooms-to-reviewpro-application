@@ -1,0 +1,633 @@
+<div>
+  <h2 id="page-heading" data-cy="ReservationHeading">
+    <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.home.title">Reservations</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-reservation"
+        [routerLink]="['/reservation/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.home.createLabel">Create a new Reservation</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (reservations?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.home.notFound">No Reservations found</span>
+    </div>
+  }
+
+  @if (reservations && reservations.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="resvId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.resvId">Resv Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="created">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.created">Created</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="updated">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.updated">Updated</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="deleted">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.deleted">Deleted</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="venueGroupClientId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.venueGroupClientId">Venue Group Client Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="venueGroupId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.venueGroupId">Venue Group Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="venueId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.venueId">Venue Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="date">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.date">Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="duration">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.duration">Duration</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="checkNumbers">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.checkNumbers">Check Numbers</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="shiftCategory">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.shiftCategory">Shift Category</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="shiftPersistentId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.shiftPersistentId">Shift Persistent Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="maxGuests">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.maxGuests">Max Guests</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="mfratioMale">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.mfratioMale">Mfratio Male</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="mfratioFemale">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.mfratioFemale">Mfratio Female</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="status">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.status">Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="statusDisplay">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.statusDisplay">Status Display</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="statusSimple">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.statusSimple">Status Simple</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="accessPersistentId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.accessPersistentId">Access Persistent Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="arrivedGuests">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.arrivedGuests">Arrived Guests</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="isvip">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.isvip">Isvip</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="bookedby">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.bookedby">Bookedby</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="clientReferenceCode">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.clientReferenceCode">Client Reference Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastname">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.lastname">Lastname</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="firstname">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.firstname">Firstname</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="email">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.email">Email</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="phoneNumber">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.phoneNumber">Phone Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="address">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.address">Address</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="address2">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.address2">Address 2</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="city">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.city">City</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="postalCode">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.postalCode">Postal Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="state">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.state">State</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="country">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.country">Country</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="loyaltyId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.loyaltyId">Loyalty Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="loyaltyRank">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.loyaltyRank">Loyalty Rank</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="loyaltyTier">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.loyaltyTier">Loyalty Tier</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="notes">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.notes">Notes</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="arrivalTime">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.arrivalTime">Arrival Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="seatedTime">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.seatedTime">Seated Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="leftTime">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.leftTime">Left Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="clientRequests">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.clientRequests">Client Requests</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="comps">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.comps">Comps</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="compsPriceType">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.compsPriceType">Comps Price Type</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="costOption">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.costOption">Cost Option</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="policy">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.policy">Policy</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="minPrice">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.minPrice">Min Price</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="prePayment">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.prePayment">Pre Payment</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="onsitePayment">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.onsitePayment">Onsite Payment</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalPayment">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.totalPayment">Total Payment</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="paidBy">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.paidBy">Paid By</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="servedBy">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.servedBy">Served By</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="rating">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.rating">Rating</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="problems">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.problems">Problems</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="autoAssignments">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.autoAssignments">Auto Assignments</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="externalClientId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.externalClientId">External Client Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="externalId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.externalId">External Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="externalReferenceCode">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.externalReferenceCode">External Reference Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="externalUserId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.externalUserId">External User Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="modifyReservationLink">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.modifyReservationLink">Modify Reservation Link</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="referenceCode">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.referenceCode">Reference Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="reservationSmsOptin">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.reservationSmsOptin">Reservation Sms Optin</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="reservationType">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.reservationType">Reservation Type</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="sendReminderEmail">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.sendReminderEmail">Send Reminder Email</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="sendreminderSms">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.sendreminderSms">Sendreminder Sms</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="sourceClientId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.sourceClientId">Source Client Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="userId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.userId">User Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="userName">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.reservation.userName">User Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (reservation of reservations; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/reservation', reservation.id, 'view']">{{ reservation.id }}</a>
+              </td>
+              <td>{{ reservation.resvId }}</td>
+              <td>{{ reservation.created }}</td>
+              <td>{{ reservation.updated }}</td>
+              <td>{{ reservation.deleted }}</td>
+              <td>{{ reservation.venueGroupClientId }}</td>
+              <td>{{ reservation.venueGroupId }}</td>
+              <td>{{ reservation.venueId }}</td>
+              <td>{{ reservation.date }}</td>
+              <td>{{ reservation.duration }}</td>
+              <td>{{ reservation.checkNumbers }}</td>
+              <td>{{ reservation.shiftCategory }}</td>
+              <td>{{ reservation.shiftPersistentId }}</td>
+              <td>{{ reservation.maxGuests }}</td>
+              <td>{{ reservation.mfratioMale }}</td>
+              <td>{{ reservation.mfratioFemale }}</td>
+              <td>{{ reservation.status }}</td>
+              <td>{{ reservation.statusDisplay }}</td>
+              <td>{{ reservation.statusSimple }}</td>
+              <td>{{ reservation.accessPersistentId }}</td>
+              <td>{{ reservation.arrivedGuests }}</td>
+              <td>{{ reservation.isvip }}</td>
+              <td>{{ reservation.bookedby }}</td>
+              <td>{{ reservation.clientReferenceCode }}</td>
+              <td>{{ reservation.lastname }}</td>
+              <td>{{ reservation.firstname }}</td>
+              <td>{{ reservation.email }}</td>
+              <td>{{ reservation.phoneNumber }}</td>
+              <td>{{ reservation.address }}</td>
+              <td>{{ reservation.address2 }}</td>
+              <td>{{ reservation.city }}</td>
+              <td>{{ reservation.postalCode }}</td>
+              <td>{{ reservation.state }}</td>
+              <td>{{ reservation.country }}</td>
+              <td>{{ reservation.loyaltyId }}</td>
+              <td>{{ reservation.loyaltyRank }}</td>
+              <td>{{ reservation.loyaltyTier }}</td>
+              <td>{{ reservation.notes }}</td>
+              <td>{{ reservation.arrivalTime }}</td>
+              <td>{{ reservation.seatedTime }}</td>
+              <td>{{ reservation.leftTime }}</td>
+              <td>{{ reservation.clientRequests }}</td>
+              <td>{{ reservation.comps }}</td>
+              <td>{{ reservation.compsPriceType }}</td>
+              <td>{{ reservation.costOption }}</td>
+              <td>{{ reservation.policy }}</td>
+              <td>{{ reservation.minPrice }}</td>
+              <td>{{ reservation.prePayment }}</td>
+              <td>{{ reservation.onsitePayment }}</td>
+              <td>{{ reservation.totalPayment }}</td>
+              <td>{{ reservation.paidBy }}</td>
+              <td>{{ reservation.servedBy }}</td>
+              <td>{{ reservation.rating }}</td>
+              <td>{{ reservation.problems }}</td>
+              <td>{{ reservation.autoAssignments }}</td>
+              <td>{{ reservation.externalClientId }}</td>
+              <td>{{ reservation.externalId }}</td>
+              <td>{{ reservation.externalReferenceCode }}</td>
+              <td>{{ reservation.externalUserId }}</td>
+              <td>{{ reservation.modifyReservationLink }}</td>
+              <td>{{ reservation.referenceCode }}</td>
+              <td>{{ reservation.reservationSmsOptin }}</td>
+              <td>{{ reservation.reservationType }}</td>
+              <td>{{ reservation.sendReminderEmail }}</td>
+              <td>{{ reservation.sendreminderSms }}</td>
+              <td>{{ reservation.sourceClientId }}</td>
+              <td>{{ reservation.userId }}</td>
+              <td>{{ reservation.userName }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/reservation', reservation.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/reservation', reservation.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(reservation)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (reservations && reservations.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

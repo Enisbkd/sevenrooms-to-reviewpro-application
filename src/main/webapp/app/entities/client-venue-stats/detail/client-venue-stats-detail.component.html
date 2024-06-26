@@ -1,0 +1,154 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (clientVenueStats()) {
+      <div>
+        <h2 data-cy="clientVenueStatsDetailsHeading">
+          <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.detail.title">Client Venue Stats</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ clientVenueStats()!.id }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpendLocalperCover"
+              >Total Spend Localper Cover</span
+            >
+          </dt>
+          <dd>
+            <span>{{ clientVenueStats()!.totalSpendLocalperCover }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.lastVisitDate">Last Visit Date</span></dt>
+          <dd>
+            <span>{{ clientVenueStats()!.lastVisitDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalCancellations">Total Cancellations</span></dt>
+          <dd>
+            <span>{{ clientVenueStats()!.totalCancellations }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalCovers">Total Covers</span></dt>
+          <dd>
+            <span>{{ clientVenueStats()!.totalCovers }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.avgRating">Avg Rating</span></dt>
+          <dd>
+            <span>{{ clientVenueStats()!.avgRating }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpendperCover">Total Spendper Cover</span></dt>
+          <dd>
+            <span>{{ clientVenueStats()!.totalSpendperCover }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpend">Total Spend</span></dt>
+          <dd>
+            <span>{{ clientVenueStats()!.totalSpend }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalNoShows">Total No Shows</span></dt>
+          <dd>
+            <span>{{ clientVenueStats()!.totalNoShows }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.numRatings">Num Ratings</span></dt>
+          <dd>
+            <span>{{ clientVenueStats()!.numRatings }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpendPerVisit">Total Spend Per Visit</span></dt>
+          <dd>
+            <span>{{ clientVenueStats()!.totalSpendPerVisit }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpendLocal">Total Spend Local</span></dt>
+          <dd>
+            <span>{{ clientVenueStats()!.totalSpendLocal }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpendLocalPerVisit"
+              >Total Spend Local Per Visit</span
+            >
+          </dt>
+          <dd>
+            <span>{{ clientVenueStats()!.totalSpendLocalPerVisit }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalVisits">Total Visits</span></dt>
+          <dd>
+            <span>{{ clientVenueStats()!.totalVisits }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.grossTotal">Gross Total</span></dt>
+          <dd>
+            <span>{{ clientVenueStats()!.grossTotal }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalOrderCount">Total Order Count</span></dt>
+          <dd>
+            <span>{{ clientVenueStats()!.totalOrderCount }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalOrderCancellations"
+              >Total Order Cancellations</span
+            >
+          </dt>
+          <dd>
+            <span>{{ clientVenueStats()!.totalOrderCancellations }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalOrderSpend">Total Order Spend</span></dt>
+          <dd>
+            <span>{{ clientVenueStats()!.totalOrderSpend }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.grossOrderTotal">Gross Order Total</span></dt>
+          <dd>
+            <span>{{ clientVenueStats()!.grossOrderTotal }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalOrderSpendLocal">Total Order Spend Local</span>
+          </dt>
+          <dd>
+            <span>{{ clientVenueStats()!.totalOrderSpendLocal }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.lastOrderDate">Last Order Date</span></dt>
+          <dd>
+            <span>{{ clientVenueStats()!.lastOrderDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpendperOrder">Total Spendper Order</span></dt>
+          <dd>
+            <span>{{ clientVenueStats()!.totalSpendperOrder }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpendLocalperOrder"
+              >Total Spend Localper Order</span
+            >
+          </dt>
+          <dd>
+            <span>{{ clientVenueStats()!.totalSpendLocalperOrder }}</span>
+          </dd>
+          <dt><span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.venueId">Venue Id</span></dt>
+          <dd>
+            <span>{{ clientVenueStats()!.venueId }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.venueMarketingOptin">Venue Marketing Optin</span>
+          </dt>
+          <dd>
+            <span>{{ clientVenueStats()!.venueMarketingOptin }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.venueMarketingOptints">Venue Marketing Optints</span>
+          </dt>
+          <dd>
+            <span>{{ clientVenueStats()!.venueMarketingOptints }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/client-venue-stats', clientVenueStats()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

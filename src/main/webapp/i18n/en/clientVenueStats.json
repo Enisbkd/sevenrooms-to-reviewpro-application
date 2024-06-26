@@ -1,0 +1,50 @@
+{
+  "sevenRoomsToReviewProApplicationApp": {
+    "clientVenueStats": {
+      "home": {
+        "title": "Client Venue Stats",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Client Venue Stats",
+        "createOrEditLabel": "Create or edit a Client Venue Stats",
+        "notFound": "No Client Venue Stats found"
+      },
+      "created": "A new Client Venue Stats is created with identifier {{ param }}",
+      "updated": "A Client Venue Stats is updated with identifier {{ param }}",
+      "deleted": "A Client Venue Stats is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Client Venue Stats {{ id }}?"
+      },
+      "detail": {
+        "title": "Client Venue Stats"
+      },
+      "id": "ID",
+      "totalSpendLocalperCover": "Total Spend Localper Cover",
+      "lastVisitDate": "Last Visit Date",
+      "totalCancellations": "Total Cancellations",
+      "totalCovers": "Total Covers",
+      "avgRating": "Avg Rating",
+      "totalSpendperCover": "Total Spendper Cover",
+      "totalSpend": "Total Spend",
+      "totalNoShows": "Total No Shows",
+      "numRatings": "Num Ratings",
+      "totalSpendPerVisit": "Total Spend Per Visit",
+      "totalSpendLocal": "Total Spend Local",
+      "totalSpendLocalPerVisit": "Total Spend Local Per Visit",
+      "totalVisits": "Total Visits",
+      "grossTotal": "Gross Total",
+      "totalOrderCount": "Total Order Count",
+      "totalOrderCancellations": "Total Order Cancellations",
+      "totalOrderSpend": "Total Order Spend",
+      "grossOrderTotal": "Gross Order Total",
+      "totalOrderSpendLocal": "Total Order Spend Local",
+      "lastOrderDate": "Last Order Date",
+      "totalSpendperOrder": "Total Spendper Order",
+      "totalSpendLocalperOrder": "Total Spend Localper Order",
+      "venueId": "Venue Id",
+      "venueMarketingOptin": "Venue Marketing Optin",
+      "venueMarketingOptints": "Venue Marketing Optints",
+      "bookingName": "Booking Name",
+      "client": "Client"
+    }
+  }
+}

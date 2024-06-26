@@ -1,0 +1,430 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-client-venue-stats-heading"
+        data-cy="ClientVenueStatsCreateUpdateHeading"
+        jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.home.createOrEditLabel"
+      >
+        Create or edit a Client Venue Stats
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.id">ID</label>
+            <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_totalSpendLocalperCover"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpendLocalperCover"
+            >Total Spend Localper Cover</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalSpendLocalperCover"
+            id="field_totalSpendLocalperCover"
+            data-cy="totalSpendLocalperCover"
+            formControlName="totalSpendLocalperCover"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_lastVisitDate"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.lastVisitDate"
+            >Last Visit Date</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastVisitDate"
+            id="field_lastVisitDate"
+            data-cy="lastVisitDate"
+            formControlName="lastVisitDate"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_totalCancellations"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalCancellations"
+            >Total Cancellations</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalCancellations"
+            id="field_totalCancellations"
+            data-cy="totalCancellations"
+            formControlName="totalCancellations"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_totalCovers" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalCovers"
+            >Total Covers</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalCovers"
+            id="field_totalCovers"
+            data-cy="totalCovers"
+            formControlName="totalCovers"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_avgRating" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.avgRating"
+            >Avg Rating</label
+          >
+          <input type="number" class="form-control" name="avgRating" id="field_avgRating" data-cy="avgRating" formControlName="avgRating" />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_totalSpendperCover"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpendperCover"
+            >Total Spendper Cover</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalSpendperCover"
+            id="field_totalSpendperCover"
+            data-cy="totalSpendperCover"
+            formControlName="totalSpendperCover"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_totalSpend" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpend"
+            >Total Spend</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalSpend"
+            id="field_totalSpend"
+            data-cy="totalSpend"
+            formControlName="totalSpend"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_totalNoShows"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalNoShows"
+            >Total No Shows</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalNoShows"
+            id="field_totalNoShows"
+            data-cy="totalNoShows"
+            formControlName="totalNoShows"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_numRatings" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.numRatings"
+            >Num Ratings</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="numRatings"
+            id="field_numRatings"
+            data-cy="numRatings"
+            formControlName="numRatings"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_totalSpendPerVisit"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpendPerVisit"
+            >Total Spend Per Visit</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalSpendPerVisit"
+            id="field_totalSpendPerVisit"
+            data-cy="totalSpendPerVisit"
+            formControlName="totalSpendPerVisit"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_totalSpendLocal"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpendLocal"
+            >Total Spend Local</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalSpendLocal"
+            id="field_totalSpendLocal"
+            data-cy="totalSpendLocal"
+            formControlName="totalSpendLocal"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_totalSpendLocalPerVisit"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpendLocalPerVisit"
+            >Total Spend Local Per Visit</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalSpendLocalPerVisit"
+            id="field_totalSpendLocalPerVisit"
+            data-cy="totalSpendLocalPerVisit"
+            formControlName="totalSpendLocalPerVisit"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_totalVisits" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalVisits"
+            >Total Visits</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalVisits"
+            id="field_totalVisits"
+            data-cy="totalVisits"
+            formControlName="totalVisits"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_grossTotal" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.grossTotal"
+            >Gross Total</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="grossTotal"
+            id="field_grossTotal"
+            data-cy="grossTotal"
+            formControlName="grossTotal"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_totalOrderCount"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalOrderCount"
+            >Total Order Count</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalOrderCount"
+            id="field_totalOrderCount"
+            data-cy="totalOrderCount"
+            formControlName="totalOrderCount"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_totalOrderCancellations"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalOrderCancellations"
+            >Total Order Cancellations</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalOrderCancellations"
+            id="field_totalOrderCancellations"
+            data-cy="totalOrderCancellations"
+            formControlName="totalOrderCancellations"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_totalOrderSpend"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalOrderSpend"
+            >Total Order Spend</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalOrderSpend"
+            id="field_totalOrderSpend"
+            data-cy="totalOrderSpend"
+            formControlName="totalOrderSpend"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_grossOrderTotal"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.grossOrderTotal"
+            >Gross Order Total</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="grossOrderTotal"
+            id="field_grossOrderTotal"
+            data-cy="grossOrderTotal"
+            formControlName="grossOrderTotal"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_totalOrderSpendLocal"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalOrderSpendLocal"
+            >Total Order Spend Local</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalOrderSpendLocal"
+            id="field_totalOrderSpendLocal"
+            data-cy="totalOrderSpendLocal"
+            formControlName="totalOrderSpendLocal"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_lastOrderDate"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.lastOrderDate"
+            >Last Order Date</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastOrderDate"
+            id="field_lastOrderDate"
+            data-cy="lastOrderDate"
+            formControlName="lastOrderDate"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_totalSpendperOrder"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpendperOrder"
+            >Total Spendper Order</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalSpendperOrder"
+            id="field_totalSpendperOrder"
+            data-cy="totalSpendperOrder"
+            formControlName="totalSpendperOrder"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_totalSpendLocalperOrder"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpendLocalperOrder"
+            >Total Spend Localper Order</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="totalSpendLocalperOrder"
+            id="field_totalSpendLocalperOrder"
+            data-cy="totalSpendLocalperOrder"
+            formControlName="totalSpendLocalperOrder"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_venueId" jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.venueId"
+            >Venue Id</label
+          >
+          <input type="text" class="form-control" name="venueId" id="field_venueId" data-cy="venueId" formControlName="venueId" />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_venueMarketingOptin"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.venueMarketingOptin"
+            >Venue Marketing Optin</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="venueMarketingOptin"
+            id="field_venueMarketingOptin"
+            data-cy="venueMarketingOptin"
+            formControlName="venueMarketingOptin"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_venueMarketingOptints"
+            jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.venueMarketingOptints"
+            >Venue Marketing Optints</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="venueMarketingOptints"
+            id="field_venueMarketingOptints"
+            data-cy="venueMarketingOptints"
+            formControlName="venueMarketingOptints"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

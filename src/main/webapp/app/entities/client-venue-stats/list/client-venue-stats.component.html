@@ -1,0 +1,317 @@
+<div>
+  <h2 id="page-heading" data-cy="ClientVenueStatsHeading">
+    <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.home.title">Client Venue Stats</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-client-venue-stats"
+        [routerLink]="['/client-venue-stats/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.home.createLabel">Create a new Client Venue Stats</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (clientVenueStats?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.home.notFound">No Client Venue Stats found</span>
+    </div>
+  }
+
+  @if (clientVenueStats && clientVenueStats.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalSpendLocalperCover">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpendLocalperCover"
+                  >Total Spend Localper Cover</span
+                >
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastVisitDate">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.lastVisitDate">Last Visit Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalCancellations">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalCancellations">Total Cancellations</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalCovers">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalCovers">Total Covers</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="avgRating">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.avgRating">Avg Rating</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalSpendperCover">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpendperCover">Total Spendper Cover</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalSpend">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpend">Total Spend</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalNoShows">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalNoShows">Total No Shows</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="numRatings">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.numRatings">Num Ratings</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalSpendPerVisit">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpendPerVisit">Total Spend Per Visit</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalSpendLocal">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpendLocal">Total Spend Local</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalSpendLocalPerVisit">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpendLocalPerVisit"
+                  >Total Spend Local Per Visit</span
+                >
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalVisits">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalVisits">Total Visits</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="grossTotal">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.grossTotal">Gross Total</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalOrderCount">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalOrderCount">Total Order Count</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalOrderCancellations">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalOrderCancellations"
+                  >Total Order Cancellations</span
+                >
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalOrderSpend">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalOrderSpend">Total Order Spend</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="grossOrderTotal">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.grossOrderTotal">Gross Order Total</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalOrderSpendLocal">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalOrderSpendLocal"
+                  >Total Order Spend Local</span
+                >
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastOrderDate">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.lastOrderDate">Last Order Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalSpendperOrder">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpendperOrder">Total Spendper Order</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalSpendLocalperOrder">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.totalSpendLocalperOrder"
+                  >Total Spend Localper Order</span
+                >
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="venueId">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.venueId">Venue Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="venueMarketingOptin">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.venueMarketingOptin">Venue Marketing Optin</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="venueMarketingOptints">
+              <div class="d-flex">
+                <span jhiTranslate="sevenRoomsToReviewProApplicationApp.clientVenueStats.venueMarketingOptints"
+                  >Venue Marketing Optints</span
+                >
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (clientVenueStats of clientVenueStats; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/client-venue-stats', clientVenueStats.id, 'view']">{{ clientVenueStats.id }}</a>
+              </td>
+              <td>{{ clientVenueStats.totalSpendLocalperCover }}</td>
+              <td>{{ clientVenueStats.lastVisitDate }}</td>
+              <td>{{ clientVenueStats.totalCancellations }}</td>
+              <td>{{ clientVenueStats.totalCovers }}</td>
+              <td>{{ clientVenueStats.avgRating }}</td>
+              <td>{{ clientVenueStats.totalSpendperCover }}</td>
+              <td>{{ clientVenueStats.totalSpend }}</td>
+              <td>{{ clientVenueStats.totalNoShows }}</td>
+              <td>{{ clientVenueStats.numRatings }}</td>
+              <td>{{ clientVenueStats.totalSpendPerVisit }}</td>
+              <td>{{ clientVenueStats.totalSpendLocal }}</td>
+              <td>{{ clientVenueStats.totalSpendLocalPerVisit }}</td>
+              <td>{{ clientVenueStats.totalVisits }}</td>
+              <td>{{ clientVenueStats.grossTotal }}</td>
+              <td>{{ clientVenueStats.totalOrderCount }}</td>
+              <td>{{ clientVenueStats.totalOrderCancellations }}</td>
+              <td>{{ clientVenueStats.totalOrderSpend }}</td>
+              <td>{{ clientVenueStats.grossOrderTotal }}</td>
+              <td>{{ clientVenueStats.totalOrderSpendLocal }}</td>
+              <td>{{ clientVenueStats.lastOrderDate }}</td>
+              <td>{{ clientVenueStats.totalSpendperOrder }}</td>
+              <td>{{ clientVenueStats.totalSpendLocalperOrder }}</td>
+              <td>{{ clientVenueStats.venueId }}</td>
+              <td>{{ clientVenueStats.venueMarketingOptin }}</td>
+              <td>{{ clientVenueStats.venueMarketingOptints }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/client-venue-stats', clientVenueStats.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/client-venue-stats', clientVenueStats.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(clientVenueStats)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (clientVenueStats && clientVenueStats.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,310 @@
+{
+  "annotations": {
+    "changelogDate": "20240626143539"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "resvId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "created",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updated",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deleted",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "venueGroupClientId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "venueGroupId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "venueId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "duration",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "checkNumbers",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "shiftCategory",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "shiftPersistentId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "maxGuests",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "mfratioMale",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "mfratioFemale",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "statusDisplay",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "statusSimple",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "accessPersistentId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "arrivedGuests",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "isvip",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "bookedby",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clientReferenceCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastname",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "firstname",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "city",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "postalCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "state",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "country",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "loyaltyId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "loyaltyRank",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "loyaltyTier",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "notes",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "arrivalTime",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "seatedTime",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "leftTime",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clientRequests",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "comps",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "compsPriceType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "costOption",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "policy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "minPrice",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "prePayment",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "onsitePayment",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalPayment",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "paidBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "servedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "rating",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "problems",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "autoAssignments",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "externalClientId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "externalId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "externalReferenceCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "externalUserId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "modifyReservationLink",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "referenceCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "reservationSmsOptin",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "reservationType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sendReminderEmail",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "sendreminderSms",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "sourceClientId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "userId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "userName",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Reservation",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "resTag",
+      "otherEntityRelationshipName": "reservation",
+      "relationshipName": "resTag",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "resPosTicket",
+      "otherEntityRelationshipName": "reservation",
+      "relationshipName": "resPosTicket",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "resCustomField",
+      "otherEntityRelationshipName": "reservation",
+      "relationshipName": "resCustomField",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "resTable",
+      "otherEntityRelationshipName": "reservation",
+      "relationshipName": "resTable",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

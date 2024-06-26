@@ -1,0 +1,30 @@
+{
+  "sevenRoomsToReviewProApplicationApp": {
+    "clientTag": {
+      "home": {
+        "title": "Client Tags",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Client Tag",
+        "createOrEditLabel": "Create or edit a Client Tag",
+        "notFound": "No Client Tags found"
+      },
+      "created": "A new Client Tag is created with identifier {{ param }}",
+      "updated": "A Client Tag is updated with identifier {{ param }}",
+      "deleted": "A Client Tag is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Client Tag {{ id }}?"
+      },
+      "detail": {
+        "title": "Client Tag"
+      },
+      "id": "ID",
+      "tag": "Tag",
+      "tagDisplay": "Tag Display",
+      "group": "Group",
+      "groupDisplay": "Group Display",
+      "color": "Color",
+      "tagSearchQuery": "Tag Search Query",
+      "client": "Client"
+    }
+  }
+}
