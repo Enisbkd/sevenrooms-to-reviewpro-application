@@ -30,21 +30,6 @@ spring:
   jackson:
     serialization:
       indent-output: true
-
-  kafka:
-    bootstrap-servers: localhost:9092
-    properties:
-      application.id: sevenroomstoreviewpro
-      auto.offset.reset.config: latest
-      security.protocol: 'PLAINTEXT'
-      sasl.mechanism: ''
-      sasl.jaas.config: ''
-      ssl.sslTruststoreLocation: ''
-      ssl.sslTruststorePassword: ''
-    topics:
-      reservation-topic: data-7rooms-reservation
-      logs-topic: log-7rooms2revpro-app
-
   data:
     mongodb:
       uri: mongodb://localhost:27017/SevenRoomsToReviewProApplication
@@ -60,17 +45,6 @@ spring:
 
 server:
   port: 6060
-
-sevenroomsApi:
-  graviteeUrl: 'https://apm-dev0.sbm.interne/sevenrooms-search/v1/'
-  api-key: 78104fa5-022c-4b0d-8795-b91c6e3454c3
-  clientId: c902f7eb6c38cb7aa6fa4e806995efbb6948185255d735da5b575e780bc4ee6920983ea58f54e4e7a435ea35ab371574bbb99b1d08c5702fa1cf7dafeedf4076
-  clientSecret: bedcc8ae3b05175d3876657ce38e263a1380bd2906c7511236eb0c4e89c9c904efcb6b197e4ef9b145c4b5668baf3d6db76c8c7a15ed5115da2d0db26cfdc5bc
-  venueGroupId: ahhzfnNldmVucm9vbXMtc2VjdXJlLWRlbW9yIQsSFG5pZ2h0bG9vcF9WZW51ZUdyb3VwGICAqODizYQJDA
-
-reviewproApi:
-  graviteeUrl: 'https://apm-dev0.sbm.interne/reviewpro/v1/'
-  api-key: 909bb6e4-8571-450f-b9c8-e6251040c981
 
 # ===================================================================
 # JHipster specific properties

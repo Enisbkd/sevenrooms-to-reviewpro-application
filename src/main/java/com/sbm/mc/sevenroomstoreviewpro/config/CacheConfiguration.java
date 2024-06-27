@@ -1,7 +1,9 @@
 package com.sbm.mc.sevenroomstoreviewpro.config;
 
 import java.time.Duration;
-import org.ehcache.config.builders.*;
+import org.ehcache.config.builders.CacheConfigurationBuilder;
+import org.ehcache.config.builders.ExpiryPolicyBuilder;
+import org.ehcache.config.builders.ResourcePoolsBuilder;
 import org.ehcache.jsr107.Eh107Configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.cache.JCacheManagerCustomizer;
@@ -9,7 +11,8 @@ import org.springframework.boot.info.BuildProperties;
 import org.springframework.boot.info.GitProperties;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import tech.jhipster.config.JHipsterProperties;
 import tech.jhipster.config.cache.PrefixedKeyGenerator;
 
@@ -40,7 +43,7 @@ public class CacheConfiguration {
         return cm -> {
             createCache(cm, com.sbm.mc.sevenroomstoreviewpro.repository.UserRepository.USERS_BY_LOGIN_CACHE);
             createCache(cm, com.sbm.mc.sevenroomstoreviewpro.repository.UserRepository.USERS_BY_EMAIL_CACHE);
-            // jhipster-needle-ehcache-add-entry
+            createCache(cm, "SevenroomsTokenCache");
         };
     }
 
